@@ -7,3 +7,24 @@
     justify-content: flex-end;
     align-items: flex-end;
 }
+
+.logOutDesign {
+    color: white;
+    font-weight: bold;
+
+    margin: 1em;
+
+    transition: 0.3s;
+}
+
+.logOutDesign:hover {
+
+    transition: 0.3s;
+    color: black;
+    cursor: pointer;
+}
+
+.positionNavBar {
+    display: flex;
+    flex-direction: row;
+}

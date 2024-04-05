@@ -1,4 +1,4 @@
-.loginDesign {
+.profileDesign {
     height: 88vh;
     width: 100vw;
 
@@ -8,16 +8,4 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.buttonLogin {
-    height: 2.7em;
-    width: 10em;
-
-    margin: 1em; 
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
 }
