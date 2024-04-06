@@ -53,18 +53,20 @@ export const Login = () => {
 
 
                 <CInput
+                    className="cInputDesign"
                     type="email"
                     name="email"
                     value={user.email || ""}
                     changeEmit={imputHandler}
                 />
                 <CInput
+                    className="cInputDesign"
                     type="password"
                     name="password"
                     value={user.password || ""}
                     changeEmit={imputHandler}
                 />
-                <button className= "buttonLogin" onClick={loginMe}>Login</button>
+                <button className="buttonLogin" onClick={loginMe}>Login</button>
 
             </div>
         </>
