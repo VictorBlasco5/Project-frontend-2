@@ -22,3 +22,28 @@
     transition: 0.2s;
     background-color: rgb(63, 62, 62);
 }
+
+.cButtonDesignProfile {
+    height: 1.8em;
+    width: 5em;
+    margin: 0.9em;
+
+    border-radius: 0.5em;
+
+    background-color: black;
+    color: white;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    user-select: none;
+}
+
+.cButtonDesignProfile:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: rgb(63, 62, 62);
+}
