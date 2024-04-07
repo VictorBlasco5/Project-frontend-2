@@ -4,11 +4,13 @@ import { userData } from "../../app/slices/userSlice"
 import { useSelector } from "react-redux"
 import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput";
-import { GetProfile } from "../../services/apiCalls"
+import { GetProfile, UpdateProfile } from "../../services/apiCalls"
+import { CButton } from "../../common/CButton/CButton"
 
 export const Profile = () => {
 
     const navigate = useNavigate()
+    const [change, setChange] = useState("disabled")
 
     //conectar con redux lectura
 
@@ -18,6 +20,7 @@ export const Profile = () => {
     const [user, setUser] = useState({
         name: "",
         email: "",
+        role: "",
     })
 
     const inputHandler = (e) => {
@@ -39,13 +42,14 @@ export const Profile = () => {
             try {
 
                 const fetched = await GetProfile(reduxUser.credentials.token)
-                console.log(fetched, "goasdas");
+                console.log(fetched);
 
                 setLoadedData(true)
 
                 setUser({
                     name: fetched.data[0].name,
                     email: fetched.data[0].email,
+                    role: fetched.data[0].role,
                 })
 
             } catch (error) {
@@ -59,6 +63,18 @@ export const Profile = () => {
 
     }, [user])
 
+    const updateData = async () => {
+        try {
+            const fetched = await UpdateProfile(reduxUser.credentials.token, user)
+            console.log(fetched,"holi");
+
+            setChange("disabled")
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <>
             <div className="profileDesign">
@@ -68,7 +84,7 @@ export const Profile = () => {
                     placeholder={""}
                     name={"name"}
                     value={user.name || ""}
-                    disabled={"disabled"}
+                    disabled={change}
                     onChangeFunction={(e) => inputHandler(e)}
                 // onBlurFunction={(e) => checkError(e)}
                 />
@@ -81,6 +97,22 @@ export const Profile = () => {
                     disabled={"disabled"}
                     onChangeFunction={(e) => inputHandler(e)}
                 // onBlurFunction={(e) => checkError(e)}
+                />
+                <CInput
+                    className={`cInputDesign`}
+                    type={"role"}
+                    placeholder={""}
+                    name={"role"}
+                    value={user.role || ""}
+                    disabled={"disabled"}
+                    onChangeFunction={(e) => inputHandler(e)}
+                // onBlurFunction={(e) => checkError(e)}
+                />
+
+                <CButton
+                    className={"cButtonDesign"}
+                    title={change === "" ? "Confirm" : "Edit"}
+                    functionEmit={change === "" ? updateData : () => setChange("")}
                 />
             </div>
         </>
