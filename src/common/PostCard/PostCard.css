@@ -1,0 +1,16 @@
+.postCardDesign {
+    height: 5em;
+    width: 20em;
+
+    background-color: white;
+
+    border-radius: 0.5em;
+    border: 0.1em solid black;
+    margin: 1.5em;
+    font-size: 0.9em;
+    user-select: none;
+}
+
+.like {
+    font-weight: bold;
+}
