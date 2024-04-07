@@ -4,7 +4,7 @@ import { userData } from "../../app/slices/userSlice"
 import { useSelector } from "react-redux"
 import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput";
-import { GetMyPosts, GetProfile, UpdateProfile } from "../../services/apiCalls"
+import { AddLike, GetMyPosts, GetProfile, UpdateProfile } from "../../services/apiCalls"
 import { CButton } from "../../common/CButton/CButton"
 import { PostCard } from "../../common/PostCard/PostCard"
 
@@ -99,6 +99,24 @@ export const Profile = () => {
         }
     }
 
+    const like = async (postId) => {
+        try {
+            const fetched = await AddLike(reduxUser.credentials.token, postId)
+            console.log(fetched, "like");
+
+            const updatedPosts = posts.map(post => {
+                if (post._id === postId) {
+                    return { ...post, like: post.like + 1 };
+                }
+                return post;
+            });
+            setPosts(updatedPosts)
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     return (
         <>
             <div className="profileDesign">
@@ -147,12 +165,15 @@ export const Profile = () => {
                             posts.map(
                                 post => {
                                     return (
-                                        <PostCard
-                                            key={post._id}
-                                            description={post.description}
-                                            datePost={post.createdAt}
-                                            like={[post.like]}
-                                        />
+                                        <div className="card">
+
+                                            {/* {post._id} */}
+                                            <div>{post.description}</div>
+                                            <div>{post.createdAt}</div>
+                                            <div>{[post.like]}</div>
+                                            <button onClick={()=>like(post._id)}>like</button>
+                                        </div>
+                                        
                                     )
                                 }
                             )

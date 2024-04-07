@@ -16,3 +16,15 @@
     justify-content: flex-start;
     align-items: flex-start;
 }
+
+
+.card {
+    height: 6em;
+    width: 15em;
+
+    background-color: white;
+    margin: 1em;
+
+    border-radius: 0.5em;
+
+}
