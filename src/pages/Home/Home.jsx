@@ -15,36 +15,26 @@ export const Home = () => {
 
     useEffect(() => {
 
+        const getAllPosts = async () => {
+            try {
+                const fetched = await GetPosts(token)
+                console.log(fetched, "fetched data");
+    
+                const postsWithLikes = fetched.map(post => ({
+                    ...post,
+                    likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
+                }));
+    
+                setPosts(postsWithLikes)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
         if (token) {
             getAllPosts()
         }
     }, [token])
-
-    const getAllPosts = async () => {
-        try {
-            const fetched = await GetPosts(token)
-            console.log(fetched, "fetched data");
-
-            const postsWithLikes = fetched.map(post => ({
-                ...post,
-                likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
-            }));
-
-            setPosts(postsWithLikes)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const postsRemove = async (posts) => {
-        try {
-            const fetched = await DeletePosts(posts, token)
-            const update = await getAllPosts();
-            console.log(fetched);
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
     const like = async (postId) => {
         try {
@@ -86,11 +76,6 @@ export const Home = () => {
                                 </div>
                                 <div>{post.createdAt}</div>
                                 <div>{post.description}</div>
-                                <button
-                                    className="buttonDelete"
-                                    onClick={() => postsRemove(post._id)}>
-                                    Delete
-                                </button>
                             </div>
                         ))}
                     </div>
