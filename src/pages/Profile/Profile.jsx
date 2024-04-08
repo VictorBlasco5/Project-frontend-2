@@ -143,6 +143,11 @@ export const Profile = () => {
         <>
             <div className="profileDesign">
                 <div className="dataProfile">
+                    <button 
+                    className="buttonNewPost"
+                    onClick={() => navigate("/post")}>New post</button>
+                    <div className="space"></div>
+
                     <CInput
                         className={`cInputDesignProfile`}
                         type={"text"}

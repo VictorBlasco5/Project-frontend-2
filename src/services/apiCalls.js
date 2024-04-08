@@ -180,27 +180,54 @@ export const AddLike = async (token, postId) => {
     }
 }
 
-export const DeletePosts = async (postId, token ) => {
+export const DeletePosts = async (postId, token) => {
 
     const options = {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
-      },
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
     };
-  
+
     try {
-      const response = await fetch(`${root}posts/${postId}`, options);
-  
-      const data = await response.json();
-  
-      if (!data.success) {
-        throw new Error(data.message);
-      }
-  
-      return data;
+        const response = await fetch(`${root}posts/${postId}`, options);
+
+        const data = await response.json();
+
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+
+        return data;
     } catch (error) {
-      return error;
+        return error;
     }
-  }
+}
+
+export const CreatePost = async (token, postData) => {
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(postData)
+    };
+
+    try {
+        const response = await fetch(`${root}posts`, options);
+
+        const data = await response.json();
+        console.log("datos");
+        console.log(data)
+
+        if (!data.success) {
+            throw new Error(data.message);
+        }
+
+        return data;
+    } catch (error) {
+        return error;
+    }
+}
