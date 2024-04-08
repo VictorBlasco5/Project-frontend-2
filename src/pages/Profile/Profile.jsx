@@ -6,7 +6,6 @@ import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput";
 import { AddLike, GetMyPosts, GetProfile, UpdateProfile } from "../../services/apiCalls"
 import { CButton } from "../../common/CButton/CButton"
-import { PostCard } from "../../common/PostCard/PostCard"
 
 export const Profile = () => {
 
@@ -41,7 +40,12 @@ export const Profile = () => {
                 const fetched = await GetMyPosts(token)
                 console.log(fetched, "fetched data");
 
-                setPosts(fetched)
+                const postsWithLikes = fetched.map(post => ({
+                    ...post,
+                    likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
+                }));
+
+                setPosts(postsWithLikes)
             } catch (error) {
                 console.log(error);
             }
@@ -101,16 +105,22 @@ export const Profile = () => {
 
     const like = async (postId) => {
         try {
-            const fetched = await AddLike(reduxUser.credentials.token, postId)
-            console.log(fetched, "like");
+            const fetched = await AddLike(token, postId)
+            console.log(fetched);
 
-            const updatedPosts = posts.map(post => {
-                if (post._id === postId) {
-                    return { ...post, like: post.like + 1 };
+            if (fetched && fetched.like) {
+                const updatedPostIndex = posts.findIndex((post) => post._id === fetched._id);
+                if (updatedPostIndex !== -1) {
+                    const updatedPost = {
+                        ...fetched,
+                        likeCount: fetched.like.length,
+                    };
+
+                    const updatedPosts = [...posts];
+                    updatedPosts[updatedPostIndex] = updatedPost;
+                    setPosts(updatedPosts);
                 }
-                return post;
-            });
-            setPosts(updatedPosts)
+            }
 
         } catch (error) {
             console.log(error);
@@ -121,76 +131,64 @@ export const Profile = () => {
         <>
             <div className="profileDesign">
                 <div className="dataProfile">
-                <CInput
-                    className={`cInputDesignProfile`}
-                    type={"text"}
-                    placeholder={""}
-                    name={"name"}
-                    value={user.name || ""}
-                    disabled={change}
-                    onChangeFunction={(e) => inputHandler(e)}
-                // onBlurFunction={(e) => checkError(e)}
-                />
-                <CInput
-                    className={`cInputDesignProfile`}
-                    type={"email"}
-                    placeholder={""}
-                    name={"email"}
-                    value={user.email || ""}
-                    disabled={"disabled"}
-                    onChangeFunction={(e) => inputHandler(e)}
-                // onBlurFunction={(e) => checkError(e)}
-                />
-                <CInput
-                    className={`cInputDesignProfile`}
-                    type={"role"}
-                    placeholder={""}
-                    name={"role"}
-                    value={user.role || ""}
-                    disabled={"disabled"}
-                    onChangeFunction={(e) => inputHandler(e)}
-                // onBlurFunction={(e) => checkError(e)}
-                />
-                <CButton
-                    className={"cButtonDesignProfile"}
-                    title={change === "" ? "Confirm" : "Edit"}
-                    functionEmit={change === "" ? updateData : () => setChange("")}
-                />
+                    <CInput
+                        className={`cInputDesignProfile`}
+                        type={"text"}
+                        placeholder={""}
+                        name={"name"}
+                        value={user.name || ""}
+                        disabled={change}
+                        onChangeFunction={(e) => inputHandler(e)}
+                    // onBlurFunction={(e) => checkError(e)}
+                    />
+                    <CInput
+                        className={`cInputDesignProfile`}
+                        type={"email"}
+                        placeholder={""}
+                        name={"email"}
+                        value={user.email || ""}
+                        disabled={"disabled"}
+                        onChangeFunction={(e) => inputHandler(e)}
+                    // onBlurFunction={(e) => checkError(e)}
+                    />
+                    <CInput
+                        className={`cInputDesignProfile`}
+                        type={"role"}
+                        placeholder={""}
+                        name={"role"}
+                        value={user.role || ""}
+                        disabled={"disabled"}
+                        onChangeFunction={(e) => inputHandler(e)}
+                    // onBlurFunction={(e) => checkError(e)}
+                    />
+                    <CButton
+                        className={"cButtonDesignProfile"}
+                        title={change === "" ? "Confirm" : "Edit"}
+                        functionEmit={change === "" ? updateData : () => setChange("")}
+                    />
                 </div>
 
                 <div className="profileDesign">
-                {posts.length > 0 ? (
-                    <div className="positionPostCard">
-                        {
-                            posts.map(
-                                post => {
-                                    return (
-                                        <div className="card">
-
-                                            {/* {post._id} */}
-                                            <div>{post.description}</div>
-                                            <div>{post.createdAt}</div>
-                                            <div>{[post.like]}</div>
-                                            <button onClick={()=>like(post._id)}>like</button>
-                                        </div>
-                                        
-                                    )
-                                }
-                            )
-                        }
-                    </div>
-                ) : (
-                    <div>You dont have posts</div>
-                )}
+                    {posts.length > 0 ? (
+                        <div className="positionPostCard">
+                             {posts.map(post => (
+                            <div className="card" key={post._id}>
+                                <div className="numberLikes">
+                                    <button className="buttonLike" onClick={() => like(post._id)}>
+                                        <img className="like" src="../../../img/like.png" alt="" />
+                                    </button>
+                                    <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
+                                </div>
+                                <div>{post.createdAt}</div>
+                                <div>{post.description}</div>
+                            </div>
+                        ))}
+                        </div>
+                    ) : (
+                        <div>You dont have posts</div>
+                    )}
                 </div>
             </div>
-
-
-
-
-
-
-
         </>
     )
 }
