@@ -45,7 +45,7 @@ export const Profile = () => {
     const ownPosts = async () => {
         try {
             const fetched = await GetMyPosts(token)
-            console.log(fetched, "fetched data");
+            // console.log(fetched, "fetched data");
 
             const postsWithLikes = fetched.map(post => ({
                 ...post,
@@ -61,7 +61,7 @@ export const Profile = () => {
     const postsRemove = async (posts) => {
         try {
             const fetched = await DeletePosts(posts, token)
-            const fet = await ownPosts();
+            const update = await ownPosts();
         } catch (error) {
             console.log(error)
         }
@@ -81,7 +81,7 @@ export const Profile = () => {
             try {
 
                 const fetched = await GetProfile(reduxUser.credentials.token)
-                console.log(fetched);
+                // console.log(fetched);
 
                 setLoadedData(true)
 
@@ -105,7 +105,7 @@ export const Profile = () => {
     const updateData = async () => {
         try {
             const fetched = await UpdateProfile(reduxUser.credentials.token, user)
-            console.log(fetched, "holi");
+            // console.log(fetched, "holi");
 
             setChange("disabled")
 
@@ -118,7 +118,7 @@ export const Profile = () => {
     const like = async (postId) => {
         try {
             const fetched = await AddLike(token, postId)
-            console.log(fetched);
+            // console.log(fetched);
 
             if (fetched && fetched.like) {
                 const updatedPostIndex = posts.findIndex((post) => post._id === fetched._id);
@@ -193,7 +193,11 @@ export const Profile = () => {
                                     </div>
                                     <div>{post.createdAt}</div>
                                     <div>{post.description}</div>
-                                    <button className="buttonLike" onClick={() => postsRemove(post._id)} >Delete</button>
+                                    <button
+                                        className="buttonDelete"
+                                        onClick={() => postsRemove(post._id)}>
+                                        Delete
+                                    </button>
                                 </div>
                             ))}
                         </div>

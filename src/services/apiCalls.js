@@ -141,7 +141,7 @@ export const GetMyPosts = async (token) => {
         const response = await fetch(`${root}posts/own`, options);
 
         const data = await response.json();
-        console.log(data,"data");
+        // console.log(data,"data");
 
         if (!data.success) {
             throw new Error(data.message);
