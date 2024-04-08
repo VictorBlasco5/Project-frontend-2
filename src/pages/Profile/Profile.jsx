@@ -4,7 +4,7 @@ import { userData } from "../../app/slices/userSlice"
 import { useSelector } from "react-redux"
 import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput";
-import { AddLike, GetMyPosts, GetProfile, UpdateProfile } from "../../services/apiCalls"
+import { AddLike, DeletePosts, GetMyPosts, GetProfile, UpdateProfile } from "../../services/apiCalls"
 import { CButton } from "../../common/CButton/CButton"
 
 export const Profile = () => {
@@ -35,26 +35,37 @@ export const Profile = () => {
     };
 
     useEffect(() => {
-        const ownPosts = async () => {
-            try {
-                const fetched = await GetMyPosts(token)
-                console.log(fetched, "fetched data");
-
-                const postsWithLikes = fetched.map(post => ({
-                    ...post,
-                    likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
-                }));
-
-                setPosts(postsWithLikes)
-            } catch (error) {
-                console.log(error);
-            }
-        }
+        
 
         if (token) {
             ownPosts()
         }
     }, [token])
+
+    const ownPosts = async () => {
+        try {
+            const fetched = await GetMyPosts(token)
+            console.log(fetched, "fetched data");
+
+            const postsWithLikes = fetched.map(post => ({
+                ...post,
+                likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
+            }));
+
+            setPosts(postsWithLikes)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const postsRemove = async (posts) => {
+        try {
+            const fetched = await DeletePosts(posts, token)
+            const fet = await ownPosts();
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
 
@@ -102,6 +113,7 @@ export const Profile = () => {
             console.log(error);
         }
     }
+
 
     const like = async (postId) => {
         try {
@@ -171,18 +183,19 @@ export const Profile = () => {
                 <div className="profileDesign">
                     {posts.length > 0 ? (
                         <div className="positionPostCard">
-                             {posts.map(post => (
-                            <div className="card" key={post._id}>
-                                <div className="numberLikes">
-                                    <button className="buttonLike" onClick={() => like(post._id)}>
-                                        <img className="like" src="../../../img/like.png" alt="" />
-                                    </button>
-                                    <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
+                            {posts.map(post => (
+                                <div className="card" key={post._id}>
+                                    <div className="numberLikes">
+                                        <button className="buttonLike" onClick={() => like(post._id)}>
+                                            <img className="like" src="../../../img/like.png" alt="" />
+                                        </button>
+                                        <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
+                                    </div>
+                                    <div>{post.createdAt}</div>
+                                    <div>{post.description}</div>
+                                    <button className="buttonLike" onClick={() => postsRemove(post._id)} >Delete</button>
                                 </div>
-                                <div>{post.createdAt}</div>
-                                <div>{post.description}</div>
-                            </div>
-                        ))}
+                            ))}
                         </div>
                     ) : (
                         <div>You dont have posts</div>
