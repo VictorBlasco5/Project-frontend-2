@@ -35,7 +35,6 @@ export const Profile = () => {
     };
 
     useEffect(() => {
-        
 
         if (token) {
             ownPosts()
@@ -143,9 +142,9 @@ export const Profile = () => {
         <>
             <div className="profileDesign">
                 <div className="dataProfile">
-                    <button 
-                    className="buttonNewPost"
-                    onClick={() => navigate("/post")}>New post</button>
+                    <button
+                        className="buttonNewPost"
+                        onClick={() => navigate("/post")}>New post</button>
                     <div className="space"></div>
 
                     <CInput
@@ -155,7 +154,7 @@ export const Profile = () => {
                         name={"name"}
                         value={user.name || ""}
                         disabled={change}
-                        onChangeFunction={(e) => inputHandler(e)}
+                        changeEmit={(e) => inputHandler(e)}
                     // onBlurFunction={(e) => checkError(e)}
                     />
                     <CInput
@@ -165,7 +164,7 @@ export const Profile = () => {
                         name={"email"}
                         value={user.email || ""}
                         disabled={"disabled"}
-                        onChangeFunction={(e) => inputHandler(e)}
+                        // changeEmit={(e) => inputHandler(e)}
                     // onBlurFunction={(e) => checkError(e)}
                     />
                     <CInput
@@ -175,7 +174,7 @@ export const Profile = () => {
                         name={"role"}
                         value={user.role || ""}
                         disabled={"disabled"}
-                        onChangeFunction={(e) => inputHandler(e)}
+                        // changeEmit={(e) => inputHandler(e)}
                     // onBlurFunction={(e) => checkError(e)}
                     />
                     <CButton
