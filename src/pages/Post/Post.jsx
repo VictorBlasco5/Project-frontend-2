@@ -3,8 +3,8 @@ import { CreatePost } from "../../services/apiCalls";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { CInput } from "../../common/CInput/CInput";
 import { userData } from "../../app/slices/userSlice"
+import { CTextarea } from "../../common/CTextarea/CTextarea";
 
 export const Post = () => {
 
@@ -34,8 +34,8 @@ export const Post = () => {
 
     return (
         <div className="postDesign">
-            <CInput
-                className={"cInputDesignPost "}
+            <CTextarea
+                className={"cTextareaDesignPost"}
                 type="text"
                 name={"description"}
                 value={post.description || ""}
