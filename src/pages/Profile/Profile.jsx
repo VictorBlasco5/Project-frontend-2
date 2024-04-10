@@ -50,7 +50,7 @@ export const Profile = () => {
                 ...post,
                 likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
             }));
-
+            postsWithLikes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // ordeno los post de más nuevo a más antiguo
             setPosts(postsWithLikes)
         } catch (error) {
             console.log(error);
@@ -137,6 +137,11 @@ export const Profile = () => {
             console.log(error);
         }
     }
+    
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
 
     return (
         <>
@@ -195,8 +200,8 @@ export const Profile = () => {
                                         </button>
                                         <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                     </div>
-                                    <div>{post.createdAt}</div>
                                     <div>{post.description}</div>
+                                    <div>{formatDate(post.createdAt)}</div>
                                     <button
                                         className="buttonDelete"
                                         onClick={() => postsRemove(post._id)}>

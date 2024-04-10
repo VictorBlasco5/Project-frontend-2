@@ -37,6 +37,7 @@ export const Home = () => {
                     ...post,
                     likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
                 }));
+                postsWithLikes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // ordeno los post de más nuevo a más antiguo
                 setPosts(postsWithLikes)
             } catch (error) {
                 console.log(error);

@@ -56,15 +56,15 @@ export const PostDetail = () => {
         <div className="postDetailDesign">
             <div className="cardDetail">
 
-                <div> {formatDate(detailRdx?.detail?.createdAt)}</div>
-                <div>  {detailRdx?.detail?.description}</div>
-                {/* <div>Likes{detailRdx?.detail?.likeCount}</div> */}
                 < div className="numberLikes" >
                     <button className="buttonLike" onClick={() => like(detailRdx?.detail?._id)}>
                         <img className="like" src="../../../img/like.png" alt="" />
                     </button>
                     <span>{detailRdx?.detail?.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                 </div>
+                <div>  {detailRdx?.detail?.description}</div>
+                <div> {formatDate(detailRdx?.detail?.createdAt)}</div>
+                {/* <div>Likes{detailRdx?.detail?.likeCount}</div> */}
             </div>
         </div >
     )
