@@ -47,12 +47,16 @@ export const PostDetail = () => {
         }
     }
 
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
 
     return (
         <div className="postDetailDesign">
             <div className="cardDetail">
 
-                <div> {detailRdx?.detail?.createdAt}</div>
+                <div> {formatDate(detailRdx?.detail?.createdAt)}</div>
                 <div>  {detailRdx?.detail?.description}</div>
                 {/* <div>Likes{detailRdx?.detail?.likeCount}</div> */}
                 < div className="numberLikes" >

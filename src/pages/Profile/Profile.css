@@ -19,8 +19,8 @@
 
 
 .card {
-    height: 8em;
-    width: 15em;
+    height: 10em;
+    width: 35em;
 
     display: flex;
     flex-direction: column;
@@ -30,8 +30,16 @@
     margin: 1em;
 
     border-radius: 0.5em;
-    
+
+    border: 0;
+
 }
+
+.card:focus {
+    outline: none;
+    border: none;
+}
+
 
 .buttonLike {
     height: 2em;
@@ -42,7 +50,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    border: 0;
+
 }
+
+.buttonLike:focus {
+    outline: none;
+    border: none;
+}
+
 
 .like {
     height: 1.5em;

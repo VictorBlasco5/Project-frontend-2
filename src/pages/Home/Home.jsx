@@ -72,6 +72,11 @@ export const Home = () => {
         }
     }
 
+    const formatDate = (dateString) => {
+        const options = { year: 'numeric', month: 'long', day: 'numeric', hour12: false };
+        return new Date(dateString).toLocaleDateString('en-US', options);
+    };
+
     return (
         <>
             <div className="homeDesign">
@@ -86,10 +91,11 @@ export const Home = () => {
                                     <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                 </div>
                                 <button
+                                     
                                     className="card"
                                     onClick={() => handlePost(post)}>
-                                    {/* <div>{post.createdAt}</div> */}
                                     <div>{post.description.length > 20 ? post.description.substring(0,20) + "..." : post.description}</div>
+                                    <div>{formatDate(post.createdAt)}</div>
                                 </button>
                             </div>
                         ))}
