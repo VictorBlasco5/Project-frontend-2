@@ -1,26 +1,67 @@
 import "./PostDetail.css"
 import { detailData } from "../../app/slices/postDetailSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux"
+import { AddLike } from "../../services/apiCalls";
+import { userData } from "../../app/slices/userSlice";
 
 
-export const PostDetail =  () => {
+export const PostDetail = () => {
 
-    const detailRdx =  useSelector(detailData);
+    const reduxUser = useSelector(userData)
+    const detailRdx = useSelector(detailData);
     const navigate = useNavigate();
+    const [posts, setPosts] = useState([])
+    const token = reduxUser.credentials.token || ({});
 
     useEffect(() => {
-        
+
         if (!detailRdx?.detail) {
             navigate("/post-detail");
         }
     }, [detailRdx]);
 
 
+    const like = async (postId) => {
+        try {
+            const fetched = await AddLike(token, postId)
+            console.log(fetched);
+
+            if (fetched && fetched.like) {
+                const updatedPostIndex = posts.findIndex((post) => post._id === fetched._id);
+                if (updatedPostIndex !== -1) {
+                    const updatedPost = {
+                        ...fetched,
+                        likeCount: fetched.like.length,
+                    };
+
+                    const updatedPosts = [...posts];
+                    updatedPosts[updatedPostIndex] = updatedPost;
+                    setPosts(updatedPosts);
+                }
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
     return (
         <div className="postDetailDesign">
-            {detailRdx?.detail && detailRdx?.detail?.description}
-        </div>
+            <div className="cardDetail">
+
+                <div> {detailRdx?.detail?.createdAt}</div>
+                <div>  {detailRdx?.detail?.description}</div>
+                {/* <div>Likes{detailRdx?.detail?.likeCount}</div> */}
+                < div className="numberLikes" >
+                    <button className="buttonLike" onClick={() => like(detailRdx?.detail?._id)}>
+                        <img className="like" src="../../../img/like.png" alt="" />
+                    </button>
+                    <span>{detailRdx?.detail?.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
+                </div>
+            </div>
+        </div >
     )
 }

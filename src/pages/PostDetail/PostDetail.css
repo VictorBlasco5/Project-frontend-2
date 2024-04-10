@@ -10,3 +10,16 @@
     align-items: center;
     overflow-y: auto;
 }
+
+.cardDetail {
+    height: 8em;
+    width: 20em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5em;
+    background-color: white;
+}
