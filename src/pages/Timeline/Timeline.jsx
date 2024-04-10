@@ -1,4 +1,4 @@
-import "./Home.css"
+import "./Timeline.css"
 import { useEffect, useState } from "react";
 import { AddLike, GetPosts } from "../../services/apiCalls";
 import { useSelector, useDispatch } from "react-redux"
@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom"
 import { updateDetail } from "../../app/slices/postDetailSlice";
 
 
-export const Home = () => {
+export const Timeline = () => {
 
     //conectar con redux lectura
 

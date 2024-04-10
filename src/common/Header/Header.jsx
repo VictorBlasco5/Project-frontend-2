@@ -1,5 +1,6 @@
 import "./Header.css"
 import { CLink } from "../CLink/CLink"
+import { useNavigate } from "react-router-dom";
 
 //redux
 import { useSelector, useDispatch } from "react-redux"
@@ -14,6 +15,8 @@ export const Header = () => {
     //intancia conexion escritura
     const dispatch = useDispatch()
 
+    const navigate = useNavigate()
+
     useEffect(() => {
         // console.log(reduxUser, "credenciales auth");
     }, [reduxUser])
@@ -22,18 +25,17 @@ export const Header = () => {
 
         <>
             <div className="headerDesign">
-                <CLink
-                    path="/"
-                    title="Home"
-                />
+                
                 {
                     reduxUser?.credentials?.token
 
                         ? (
                             <div className="positionNavBar">
+                                <CLink path="/" title="Timeline"/>
                                 <CLink path="/profile" title={reduxUser?.credentials?.user?.name} />
                                 <div className="logOutDesign"
-                                    onClick={() => dispatch(logout({ credentials: "" }))}>
+                                
+                                    onClick={() => dispatch(logout({ credentials: "" })) && navigate("/login")}>
                                     Log out
                                 </div>
                             </div>
