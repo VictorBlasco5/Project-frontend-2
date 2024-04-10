@@ -18,23 +18,24 @@ export const Header = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        // console.log(reduxUser, "credenciales auth");
+
     }, [reduxUser])
 
     return (
 
         <>
             <div className="headerDesign">
-                
+
                 {
                     reduxUser?.credentials?.token
 
                         ? (
                             <div className="positionNavBar">
-                                <CLink path="/" title="Timeline"/>
+                                <CLink path="/" title="Timeline" />
                                 <CLink path="/profile" title={reduxUser?.credentials?.user?.name} />
+                                <CLink path="/admin" title="Admin" />
                                 <div className="logOutDesign"
-                                
+
                                     onClick={() => dispatch(logout({ credentials: "" })) && navigate("/login")}>
                                     Log out
                                 </div>
