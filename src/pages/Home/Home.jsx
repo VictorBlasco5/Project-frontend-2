@@ -1,8 +1,11 @@
 import "./Home.css"
 import { useEffect, useState } from "react";
-import { AddLike, DeletePosts, GetPosts } from "../../services/apiCalls";
-import { useSelector } from "react-redux"
+import { AddLike, GetPosts } from "../../services/apiCalls";
+import { useSelector, useDispatch } from "react-redux"
 import { userData } from "../../app/slices/userSlice";
+import { useNavigate } from "react-router-dom"
+import { updateDetail } from "../../app/slices/postDetailSlice";
+
 
 export const Home = () => {
 
@@ -12,19 +15,28 @@ export const Home = () => {
     const token = reduxUser.credentials.token || ({});
 
     const [posts, setPosts] = useState([])
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    const handlePost = async (post) => {
+        try {
+            dispatch(updateDetail({ detail: post }))
+            navigate("/post-detail")
+
+        } catch (error) {
+
+        }
+    };
 
     useEffect(() => {
 
         const getAllPosts = async () => {
             try {
                 const fetched = await GetPosts(token)
-                console.log(fetched, "fetched data");
-    
                 const postsWithLikes = fetched.map(post => ({
                     ...post,
                     likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
                 }));
-    
                 setPosts(postsWithLikes)
             } catch (error) {
                 console.log(error);
@@ -74,8 +86,12 @@ export const Home = () => {
                                     </button>
                                     <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                 </div>
-                                <div>{post.createdAt}</div>
-                                <div>{post.description}</div>
+                                <button
+                                    className="card"
+                                    onClick={() => handlePost(post)}>
+                                    {/* <div>{post.createdAt}</div> */}
+                                    <div>{post.description}</div>
+                                </button>
                             </div>
                         ))}
                     </div>
