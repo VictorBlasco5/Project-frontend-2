@@ -89,7 +89,7 @@ export const Home = () => {
                                     className="card"
                                     onClick={() => handlePost(post)}>
                                     {/* <div>{post.createdAt}</div> */}
-                                    <div>{post.description}</div>
+                                    <div>{post.description.length > 20 ? post.description.substring(0,20) + "..." : post.description}</div>
                                 </button>
                             </div>
                         ))}
