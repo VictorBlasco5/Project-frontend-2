@@ -32,26 +32,26 @@ export const Timeline = () => {
 
         if (token) {
             getAllPosts()
-            
+
         }
     }, [token])
 
-        const getAllPosts = async () => {
-            try {
-                const fetched = await GetPosts(token)
-                const postsWithLikes = fetched.map(post => ({
-                    ...post,
-                    likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
-                }));
-                postsWithLikes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // ordeno los post de más nuevo a más antiguo
-                setPosts(postsWithLikes)
-            } catch (error) {
-                console.log(error);
-            }
+    const getAllPosts = async () => {
+        try {
+            const fetched = await GetPosts(token)
+            const postsWithLikes = fetched.map(post => ({
+                ...post,
+                likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
+            }));
+            postsWithLikes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // ordeno los post de más nuevo a más antiguo
+            setPosts(postsWithLikes)
+        } catch (error) {
+            console.log(error);
         }
-        
+    }
 
-    
+
+
 
     const like = async (postId) => {
         try {
@@ -97,18 +97,19 @@ export const Timeline = () => {
                                     <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                 </div>
                                 <button
-                                     
+
                                     className="card"
                                     onClick={() => handlePost(post)}>
-                                    <div>{post.description.length > 20 ? post.description.substring(0,20) + "..." : post.description}</div>
+                                    <div>{post.description.length > 20 ? post.description.substring(0, 20) + "..." : post.description}</div>
                                     <div>{formatDate(post.createdAt)}</div>
+                                    <div>{post.image}</div>
                                     {/* <div>{post.name}</div> */}
                                 </button>
                             </div>
                         ))}
                     </div>
                 ) : (
-                    <div>You dont have posts</div>
+                    <div></div>
                 )}
             </div>
         </>

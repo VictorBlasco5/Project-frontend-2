@@ -64,7 +64,6 @@ export const PostDetail = () => {
                 </div>
                 <div>  {detailRdx?.detail?.description}</div>
                 <div> {formatDate(detailRdx?.detail?.createdAt)}</div>
-                {/* <div>Likes{detailRdx?.detail?.likeCount}</div> */}
             </div>
         </div >
     )

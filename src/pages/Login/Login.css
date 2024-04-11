@@ -21,3 +21,29 @@
     justify-content: center;
 
 }
+
+.textRegister {
+    display: flex;
+    flex-direction: row;
+}
+
+.buttonRegister {
+    height: 2em;
+    width: 5em;
+    
+    margin-top: -0.3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+
+    border: 0;
+    color: blue;
+    text-decoration: underline;
+}
+
+.buttonRegister:focus {
+    outline: none;
+    border: none;
+}

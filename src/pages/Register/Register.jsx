@@ -61,7 +61,7 @@ export const Register = () => {
 
             setTimeout(() => {
                 navigate("/")
-            }, 1200)
+            }, 500)
 
         } catch (error) {
             setMsgError(error.message);

@@ -71,7 +71,11 @@ export const Login = () => {
                 setMsgSuccessfully(`Wellcome ${decoded.name}`)
 
                 dispatch(login({ credentials: auth }))
-                navigate("/")
+
+                setTimeout(() => {
+                    navigate("/timeline")
+                }, 500)
+                
             }
         } catch (error) {
             setMsgError(error.message);
@@ -103,6 +107,10 @@ export const Login = () => {
                 <div className="error">{userError.passwordError}</div>
 
                 <button className="buttonLogin" onClick={loginMe}>Login</button>
+                <div className="textRegister">
+                    <div>No tienes cuenta?</div>
+                    <button className="buttonRegister" onClick={() => navigate("/register")}>Registrate</button>
+                </div>
                 <div className="error">{msgError} </ div>
                 <div className="successfully">{msgSuccessfully} </ div>
 
