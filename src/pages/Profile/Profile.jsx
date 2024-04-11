@@ -39,7 +39,7 @@ export const Profile = () => {
         if (token) {
             ownPosts()
         }
-    }, [token, posts])
+    }, [token])
 
     const ownPosts = async () => {
         try {
@@ -65,7 +65,6 @@ export const Profile = () => {
             console.log(error)
         }
     }
-
 
 
     useEffect(() => {
@@ -117,7 +116,7 @@ export const Profile = () => {
     const like = async (postId) => {
         try {
             const fetched = await AddLike(token, postId)
-            // console.log(fetched);
+            console.log(fetched);
 
             if (fetched && fetched.like) {
                 const updatedPostIndex = posts.findIndex((post) => post._id === fetched._id);
@@ -132,12 +131,13 @@ export const Profile = () => {
                     setPosts(updatedPosts);
                 }
             }
+            ownPosts()
 
         } catch (error) {
             console.log(error);
         }
     }
-    
+
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
         return new Date(dateString).toLocaleDateString('en-US', options);
@@ -169,7 +169,7 @@ export const Profile = () => {
                         name={"email"}
                         value={user.email || ""}
                         disabled={"disabled"}
-                        // changeEmit={(e) => inputHandler(e)}
+                    // changeEmit={(e) => inputHandler(e)}
                     // onBlurFunction={(e) => checkError(e)}
                     />
                     <CInput
@@ -179,7 +179,7 @@ export const Profile = () => {
                         name={"role"}
                         value={user.role || ""}
                         disabled={"disabled"}
-                        // changeEmit={(e) => inputHandler(e)}
+                    // changeEmit={(e) => inputHandler(e)}
                     // onBlurFunction={(e) => checkError(e)}
                     />
                     <CButton

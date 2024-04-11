@@ -1,4 +1,4 @@
-import { DeleteUsers, GetPosts, GetUsers } from "../../services/apiCalls";
+import { DeletePosts, DeleteUsers, GetPosts, GetUsers } from "../../services/apiCalls";
 import "./Admin.css"
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux"
@@ -53,24 +53,36 @@ export const Admin = () => {
 
     useEffect(() => {
 
-        const getAllPosts = async () => {
-            try {
-                const fetched = await GetPosts(token)
-                const postsWithLikes = fetched.map(post => ({
-                    ...post,
-                    likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
-                }));
-                postsWithLikes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // ordeno los post de más nuevo a más antiguo
-                setPosts(postsWithLikes)
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
         if (token) {
             getAllPosts()
         }
-    }, [token, posts])
+        console.log(getAllPosts, "posts");
+    }, [token])
+
+    const getAllPosts = async () => {
+        try {
+            const fetched = await GetPosts(token)
+            const postsWithLikes = fetched.map(post => ({
+                ...post,
+                likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
+            }));
+            postsWithLikes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // ordeno los post de más nuevo a más antiguo
+            setPosts(postsWithLikes)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+    const postsRemove = async (posts) => {
+        try {
+            const fetched = await DeletePosts(posts, token)
+            getAllPosts()
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
@@ -103,7 +115,7 @@ export const Admin = () => {
                     </div>
                 ) : (
                     <div>
-                        
+
                         {posts.length > 0 ? (
                             <div className="positionPostCard">
                                 {posts.map(post => (
@@ -122,6 +134,7 @@ export const Admin = () => {
                                             <div>{formatDate(post.createdAt)}</div>
                                             {/* <div>{post.name}</div> */}
                                         </div>
+                                        <button onClick={() => postsRemove(post._id)}>Delete</button>
                                     </div>
                                 ))}
                             </div>

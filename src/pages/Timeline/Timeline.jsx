@@ -30,6 +30,12 @@ export const Timeline = () => {
 
     useEffect(() => {
 
+        if (token) {
+            getAllPosts()
+            
+        }
+    }, [token])
+
         const getAllPosts = async () => {
             try {
                 const fetched = await GetPosts(token)
@@ -43,11 +49,9 @@ export const Timeline = () => {
                 console.log(error);
             }
         }
+        
 
-        if (token) {
-            getAllPosts()
-        }
-    }, [token, posts])
+    
 
     const like = async (postId) => {
         try {
@@ -67,6 +71,7 @@ export const Timeline = () => {
                     setPosts(updatedPosts);
                 }
             }
+            getAllPosts()
 
         } catch (error) {
             console.log(error);
