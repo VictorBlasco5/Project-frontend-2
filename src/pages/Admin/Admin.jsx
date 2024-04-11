@@ -9,7 +9,16 @@ export const Admin = () => {
     const [users, setUsers] = useState([])
     const reduxUser = useSelector(userData)
     const token = reduxUser.credentials.token || ({});
+    const [showUsers, setShowUsers] = useState(true);
 
+
+    const handleShowUsers = () => {
+        setShowUsers(true);
+    };
+
+    const handleShowPosts = () => {
+        setShowUsers(false);
+    };
 
     useEffect(() => {
         if (users.length === 0) {
@@ -40,35 +49,34 @@ export const Admin = () => {
         }
     }
 
-
     return (
         <div className="admin">
-            {users.length > 0 ? (
-                <div className="cardPosition">
-                    {
-                        users.map(
-                            user => {
-                                return (
-                                    <>
-                                        <div className="cardUser">
-                                            <div>{user.name}</div>
-                                            <div>{user.email}</div>
-                                            <div>{user.role}</div>
-                                            <button
-                                                className="buttonDelete"
-                                                onClick={() => userRemove(user._id)}>
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </>
-                                )
-                            }
-                        )
-                    }
-                </div>
-            ) : (
-                <div>LOADING</div>
-            )}
+            <button onClick={handleShowUsers}>Users</button>
+            <button onClick={handleShowPosts}>Posts</button>
+            <div>
+                {showUsers ? (
+                    <div className="cardPosition">
+                        {users.length > 0 ? (
+                            users.map(user => (
+                                <div key={user._id} className="cardUser">
+                                    <div>{user.name}</div>
+                                    <div>{user.email}</div>
+                                    <div>{user.role}</div>
+                                    <button
+                                        className="buttonDelete"
+                                        onClick={() => userRemove(user._id)}>
+                                        Delete
+                                    </button>
+                                </div>
+                            ))
+                        ) : (
+                            <div>LOADING</div>
+                        )}
+                    </div>
+                ) : (
+                    <div>Posts Content</div>
+                )}
+            </div>
         </div>
-    )
+    );
 }
