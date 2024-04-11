@@ -33,7 +33,12 @@ export const Header = () => {
                             <div className="positionNavBar">
                                 <CLink path="/" title="Timeline" />
                                 <CLink path="/profile" title={reduxUser?.credentials?.user?.name} />
-                                <CLink path="/admin" title="Admin" />
+                                {reduxUser?.credentials?.user?.roleName === "super_admin"
+                                    ? (
+                                        <div ><CLink path="/admin" title="Admin" /></div>
+                                    ) : (
+                                        <div></div>
+                                    )}
                                 <div className="logOutDesign"
 
                                     onClick={() => dispatch(logout({ credentials: "" })) && navigate("/login")}>

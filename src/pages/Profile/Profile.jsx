@@ -39,7 +39,7 @@ export const Profile = () => {
         if (token) {
             ownPosts()
         }
-    }, [token])
+    }, [token, posts])
 
     const ownPosts = async () => {
         try {
