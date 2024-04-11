@@ -91,56 +91,73 @@ export const Admin = () => {
 
     return (
         <div className="admin">
-            <button onClick={handleShowUsers}>Users</button>
-            <button onClick={handleShowPosts}>Posts</button>
-            <div>
+            <div className="containTable">
+                <button className="buttonTableAdmin" onClick={handleShowUsers}>Users</button>
+                <button className="buttonTableAdmin" onClick={handleShowPosts}>Posts</button>
+            </div>
+            <div className="admin">
                 {showUsers ? (
-                    <div className="cardPosition">
-                        {users.length > 0 ? (
-                            users.map(user => (
-                                <div key={user._id} className="cardUser">
-                                    <div>{user.name}</div>
-                                    <div>{user.email}</div>
-                                    <div>{user.role}</div>
-                                    <button
-                                        className="buttonDelete"
-                                        onClick={() => userRemove(user._id)}>
-                                        Delete
-                                    </button>
-                                </div>
-                            ))
-                        ) : (
-                            <div>LOADING</div>
-                        )}
+                    <div>
+                        <div className="table">
+                            {users.length > 0 ? (
+                                users.map(user => (
+                                    <div key={user._id} >
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th className="name">{user.name}</th>
+                                                    <th className="email">{user.email}</th>
+                                                    <th className="role">{user.role}</th>
+                                                    <button
+                                                        className="buttonDelete"
+                                                        onClick={() => userRemove(user._id)}>
+                                                        Delete
+                                                    </button>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                ))
+                            ) : (
+                                <div>LOADING</div>
+                            )}
+                        </div>
                     </div>
                 ) : (
-                    <div>
+                    <div >
+                        <div className="table">
+                            {posts.length > 0 ? (
+                                <div >
+                                    {posts.map(post => (
+                                        <div key={post._id}>
+                                            <table>
+                                                <thead>
+                                                    <tr className="row">
+                                                        <div className="numberLikes">
+                                                            <th className="buttonLike" >
+                                                                <img className="like" src="../../../img/like.png" alt="" />
+                                                            </th>
+                                                            <th className="numberLikes">{post.likeCount}</th> {/* Mostrar el número total de "me gusta" */}
+                                                        </div>
+                                                        <div
 
-                        {posts.length > 0 ? (
-                            <div className="positionPostCard">
-                                {posts.map(post => (
-                                    <div className="card" key={post._id}>
-                                        <div className="numberLikes">
-                                            <div className="buttonLike" >
-                                                <img className="like" src="../../../img/like.png" alt="" />
-                                            </div>
-                                            <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
+                                                            onClick={() => handlePost(post)}>
+                                                            <th className="description">{post.description.length > 50 ? post.description.substring(0, 50) + "..." : post.description}</th>
+                                                            <th className="date">{formatDate(post.createdAt)}</th>
+                                                            {/* <div>{post.name}</div> */}
+                                                        </div>
+                                                        <button className="buttonDelete" onClick={() => postsRemove(post._id)}>Delete</button>
+                                                        
+                                                    </tr>
+                                                </thead>
+                                            </table>
                                         </div>
-                                        <div
-
-                                            className="card"
-                                            onClick={() => handlePost(post)}>
-                                            <div>{post.description.length > 20 ? post.description.substring(0, 20) + "..." : post.description}</div>
-                                            <div>{formatDate(post.createdAt)}</div>
-                                            {/* <div>{post.name}</div> */}
-                                        </div>
-                                        <button onClick={() => postsRemove(post._id)}>Delete</button>
-                                    </div>
-                                ))}
-                            </div>
-                        ) : (
-                            <div>LOADING</div>
-                        )}
+                                    ))}
+                                </div>
+                            ) : (
+                                <div>LOADING</div>
+                            )}
+                        </div>
                     </div>
                 )}
             </div>

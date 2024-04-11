@@ -40,19 +40,17 @@
     border: none;
 }
 
-
 .buttonLike {
     height: 2em;
     width: 2em;
 
-    background-color: rgba(0, 255, 255, 0);
+    /* background-color: rgb(0, 255, 255); */
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     border: 0;
-
 }
 
 .buttonLike:focus {
@@ -65,25 +63,37 @@
     height: 1.5em;
     width: 1.5em;
 
-    background-color: rgba(238, 13, 13, 0);
+    /* background-color: rgba(238, 13, 13, 0); */
 }
 
 .numberLikes {
     display: flex;
     align-items: center;
+    /* background-color: rgb(238, 13, 13); */
 }
 
 .buttonDelete {
     height: 2em;
     width: 3em;
 
-    background-color: rgba(250, 250, 250, 0);
+    /* background-color: yellow; */
 
     display: flex;
     align-items: center;
     justify-content: center;
     
     font-size: 0.8em;
+    border: 0;
+}
+
+.buttonDelete:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonDelete:hover {
+    color: white;
+
 }
 
 .buttonNewPost {
