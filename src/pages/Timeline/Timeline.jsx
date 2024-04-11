@@ -47,7 +47,7 @@ export const Timeline = () => {
         if (token) {
             getAllPosts()
         }
-    }, [token])
+    }, [token, posts])
 
     const like = async (postId) => {
         try {
@@ -97,6 +97,7 @@ export const Timeline = () => {
                                     onClick={() => handlePost(post)}>
                                     <div>{post.description.length > 20 ? post.description.substring(0,20) + "..." : post.description}</div>
                                     <div>{formatDate(post.createdAt)}</div>
+                                    {/* <div>{post.name}</div> */}
                                 </button>
                             </div>
                         ))}

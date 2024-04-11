@@ -201,6 +201,7 @@ export const Profile = () => {
                                         <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                     </div>
                                     <div>{post.description}</div>
+                                    {/* <div>{post.name}</div> */}
                                     <div>{formatDate(post.createdAt)}</div>
                                     <button
                                         className="buttonDelete"
