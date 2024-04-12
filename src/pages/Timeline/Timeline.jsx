@@ -100,9 +100,9 @@ export const Timeline = () => {
 
                                     className="card"
                                     onClick={() => handlePost(post)}>
+                                    <img className="image" src={post.image} alt="image"/>
                                     <div>{post.description.length > 20 ? post.description.substring(0, 20) + "..." : post.description}</div>
                                     <div>{formatDate(post.createdAt)}</div>
-                                    <div>{post.image}</div>
                                     {/* <div>{post.name}</div> */}
                                 </button>
                             </div>

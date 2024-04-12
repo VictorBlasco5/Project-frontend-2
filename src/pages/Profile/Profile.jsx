@@ -200,6 +200,7 @@ export const Profile = () => {
                                         </button>
                                         <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                     </div>
+                                    <img className="image" src={post.image} alt="image"/>
                                     <div>{post.description}</div>
                                     {/* <div>{post.name}</div> */}
                                     <div>{formatDate(post.createdAt)}</div>

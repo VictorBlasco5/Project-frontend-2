@@ -62,6 +62,7 @@ export const PostDetail = () => {
                     </button>
                     <span>{detailRdx?.detail?.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                 </div>
+                <img className="image" src={detailRdx?.detail?.image} alt="image"/>
                 <div>  {detailRdx?.detail?.description}</div>
                 <div> {formatDate(detailRdx?.detail?.createdAt)}</div>
             </div>

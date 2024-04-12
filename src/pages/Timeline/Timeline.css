@@ -16,3 +16,10 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.image {
+    height: 15em;
+    width: 15em;
+
+    border-radius: 0.5em;
+}
