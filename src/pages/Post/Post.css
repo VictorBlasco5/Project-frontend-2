@@ -11,3 +11,18 @@
     overflow-y: auto;
 }
 
+.buttonCreatePost {
+    height: 3em;
+    width: 10em;
+
+    border: 0;
+}
+
+.buttonCreatePost:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonCreatePost:hover{
+    background-color: rgb(85, 84, 84);
+}

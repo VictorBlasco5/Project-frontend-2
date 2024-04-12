@@ -36,6 +36,7 @@ export const Post = () => {
     return (
         <div className="postDesign">
             <CInput 
+            className={"cInputNewPost"}
             type="text"
             name={"image"}
             placeholder={"Introduce url"}
@@ -54,6 +55,7 @@ export const Post = () => {
                 changeEmit={imputHandler}
             />
             <button
+                className="buttonCreatePost"
                 onClick={() => newPost()}
             >Create post</button>
         </div>

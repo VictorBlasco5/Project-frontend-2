@@ -131,6 +131,13 @@
 
     background-color: black;
     color: white;
+
+    border: 0;
+}
+
+.buttonNewPost:focus {
+    outline: none;
+    border: none;
 }
 
 .buttonNewPost:hover {

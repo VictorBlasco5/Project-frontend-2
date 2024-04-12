@@ -133,7 +133,7 @@ export const Admin = () => {
                                             <table>
                                                 <thead>
                                                     <tr className="row">
-                                                        <div className="numberLikes">
+                                                        <div className="numberLikesAdmin">
                                                             <th className="buttonLikeAdmin" >
                                                                 <img className="like" src="../../../img/like.png" alt="" />
                                                             </th>

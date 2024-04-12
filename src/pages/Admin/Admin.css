@@ -48,8 +48,6 @@
     width: 100%;
     background-color: darkolivegreen;
     overflow-y: auto;
-    font-size: 0.9em;
-    
 }
 
 .row {
@@ -93,11 +91,25 @@
 
     margin: 0.15em;
 
+    background-color: white;
+}
+
+.numberLikesAdmin {
+    height: 1.6em;
+    width: 3em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0.15em;
+
     border: 2px solid;
     border-color: black;
 
     background-color: white;
 }
+
 
 .description {
     height: 1em;

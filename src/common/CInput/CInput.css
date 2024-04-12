@@ -29,3 +29,10 @@
     color: black;
     background-color:white
 }
+
+.cInputNewPost {
+    height: 2em;
+    width: 30em;
+
+    border-radius: 0.5em;
+}
