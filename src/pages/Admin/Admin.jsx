@@ -109,9 +109,9 @@ export const Admin = () => {
                                                     <th className="email">{user.email}</th>
                                                     <th className="role">{user.role}</th>
                                                     <button
-                                                        className="buttonDelete"
+                                                        className="buttonDeleteAdmin"
                                                         onClick={() => userRemove(user._id)}>
-                                                        Delete
+                                                        <img className="like" src="../../../img/delete1.png" alt="" />
                                                     </button>
                                                 </tr>
                                             </thead>
@@ -134,10 +134,10 @@ export const Admin = () => {
                                                 <thead>
                                                     <tr className="row">
                                                         <div className="numberLikes">
-                                                            <th className="buttonLike" >
+                                                            <th className="buttonLikeAdmin" >
                                                                 <img className="like" src="../../../img/like.png" alt="" />
                                                             </th>
-                                                            <th className="numberLikes">{post.likeCount}</th> {/* Mostrar el número total de "me gusta" */}
+                                                            <th >{post.likeCount}</th> {/* Mostrar el número total de "me gusta" */}
                                                         </div>
                                                         <div
 
@@ -146,8 +146,10 @@ export const Admin = () => {
                                                             <th className="date">{formatDate(post.createdAt)}</th>
                                                             {/* <div>{post.name}</div> */}
                                                         </div>
-                                                        <button className="buttonDelete" onClick={() => postsRemove(post._id)}>Delete</button>
-                                                        
+                                                        <button className="buttonDeleteAdmin" onClick={() => postsRemove(post._id)}>
+                                                        <img className="like" src="../../../img/delete1.png" alt="" />
+                                                        </button>
+
                                                     </tr>
                                                 </thead>
                                             </table>

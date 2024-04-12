@@ -97,12 +97,11 @@ export const Timeline = () => {
                                     <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                 </div>
                                 <button
-
                                     className="card"
                                     onClick={() => handlePost(post)}>
-                                    <img className="image" src={post.image} alt="image"/>
-                                    <div>{post.description.length > 20 ? post.description.substring(0, 20) + "..." : post.description}</div>
                                     <div>{formatDate(post.createdAt)}</div>
+                                    <img className="image" src={post.image} alt="image" />
+                                    <div>{post.description.length > 20 ? post.description.substring(0, 20) + "..." : post.description}</div>
                                     {/* <div>{post.name}</div> */}
                                 </button>
                             </div>

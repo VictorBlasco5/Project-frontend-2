@@ -193,17 +193,17 @@ export const Profile = () => {
                     {posts.length > 0 ? (
                         <div className="positionPostCard">
                             {posts.map(post => (
-                                <div className="card" key={post._id}>
+                                <div className="cardProfile" key={post._id}>
                                     <div className="numberLikes">
                                         <button className="buttonLike" onClick={() => like(post._id)}>
                                             <img className="like" src="../../../img/like.png" alt="" />
                                         </button>
                                         <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                     </div>
-                                    <img className="image" src={post.image} alt="image"/>
+                                    <div>{formatDate(post.createdAt)}</div>
+                                    <img className="imageProfile" src={post.image} alt="image"/>
                                     <div>{post.description}</div>
                                     {/* <div>{post.name}</div> */}
-                                    <div>{formatDate(post.createdAt)}</div>
                                     <button
                                         className="buttonDelete"
                                         onClick={() => postsRemove(post._id)}>
