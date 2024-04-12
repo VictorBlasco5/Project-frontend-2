@@ -37,6 +37,22 @@ export const validation = (type, value) => {
   
         return "";
 
+        case "description":
+
+        if (value.length < 1) {
+            return "Description is necessary"
+        }
+
+        return "";
+
+        case "image":
+
+        if (value.length < 1) {
+            return "Image is necessary"
+        }
+
+        return "";
+
         default:
             console.log("errrrror");
     }
