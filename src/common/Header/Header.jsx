@@ -49,7 +49,6 @@ export const Header = () => {
                         ) : (
                             <div className="positionNavBar">
                                 <CLink path="/" title="Login" />
-                                {/* <CLink path="/register" title="Register" /> */}
                             </div>
                         )
                 }

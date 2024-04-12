@@ -108,8 +108,8 @@ export const Login = () => {
 
                 <button className="buttonLogin" onClick={loginMe}>Login</button>
                 <div className="textRegister">
-                    <div>No tienes cuenta?</div>
-                    <button className="buttonRegister" onClick={() => navigate("/register")}>Registrate</button>
+                    <div>Don't have an account?</div>
+                    <button className="buttonRegister" onClick={() => navigate("/register")}>Register</button>
                 </div>
                 <div className="error">{msgError} </ div>
                 <div className="successfully">{msgSuccessfully} </ div>

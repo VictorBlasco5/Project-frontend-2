@@ -18,14 +18,15 @@
 }
 
 .cardProfile {
-    height: 20em;
+    height: 22em;
     width: 25em;
 
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
-    background-color: white;
+    background-color:  rgb(241, 252, 225);
     margin: 1em;
 
     border-radius: 0.5em;
@@ -42,31 +43,16 @@
     border-radius: 0.5em;
 }
 
-.card {
-    height: 30em;
-    width: 45em;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    background-color: white;
-    margin: 1em;
-
-    border-radius: 0.5em;
-
-    border: 0;
-}
-
 .card:focus {
     outline: none;
     border: none;
 }
 
-.buttonLike {
+.buttonLikeProfile {
     height: 2em;
     width: 2em;
 
+    margin-top: -1em;
     background-color:transparent;
 
     display: flex;
@@ -76,9 +62,13 @@
     border: 0;
 }
 
-.buttonLike:focus {
+.buttonLikeProfile:focus {
     outline: none;
     border: none;
+}
+
+.likeCountProfile {
+    margin-top: -1em;
 }
 
 
@@ -92,14 +82,15 @@
 .numberLikes {
     display: flex;
     align-items: center;
-    /* background-color: rgb(238, 13, 13); */
+    height: 1.6em;
+    width: 3em;
 }
 
 .buttonDelete {
     height: 2em;
     width: 3em;
 
-    /* background-color: yellow; */
+    background-color: transparent;
 
     display: flex;
     align-items: center;
@@ -107,6 +98,7 @@
     
     font-size: 0.8em;
     border: 0;
+    margin-top: 1em;
 }
 
 .buttonDelete:focus {
@@ -142,10 +134,10 @@
 
 .buttonNewPost:hover {
     transition: 0.2s;
-    background-color: rgb(63, 62, 62);
+    background-color: rgb(92, 92, 92);
 }
 
 .space {
-    width: 18em;
+    width: 26em;
 }
 

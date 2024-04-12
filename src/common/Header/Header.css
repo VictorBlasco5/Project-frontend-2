@@ -1,7 +1,7 @@
 .headerDesign {
     height: 12vh;
     width: 100vw;
-    background-color: lightslategray;
+    background-color: rgb(92, 92, 92);
 
     display: flex;
     justify-content: flex-end;

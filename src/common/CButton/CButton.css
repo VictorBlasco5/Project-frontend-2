@@ -20,7 +20,7 @@
 .cButtonDesign:hover {
     cursor: pointer;
     transition: 0.2s;
-    background-color: rgb(63, 62, 62);
+    background-color: rgb(92, 92, 92);
 }
 
 .cButtonDesignProfile {
@@ -45,5 +45,5 @@
 .cButtonDesignProfile:hover {
     cursor: pointer;
     transition: 0.2s;
-    background-color: rgb(63, 62, 62);
+    background-color: rgb(92, 92, 92);
 }

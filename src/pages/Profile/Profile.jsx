@@ -117,20 +117,6 @@ export const Profile = () => {
         try {
             const fetched = await AddLike(token, postId)
             console.log(fetched);
-
-            if (fetched && fetched.like) {
-                const updatedPostIndex = posts.findIndex((post) => post._id === fetched._id);
-                if (updatedPostIndex !== -1) {
-                    const updatedPost = {
-                        ...fetched,
-                        likeCount: fetched.like.length,
-                    };
-
-                    const updatedPosts = [...posts];
-                    updatedPosts[updatedPostIndex] = updatedPost;
-                    setPosts(updatedPosts);
-                }
-            }
             ownPosts()
 
         } catch (error) {
@@ -195,15 +181,14 @@ export const Profile = () => {
                             {posts.map(post => (
                                 <div className="cardProfile" key={post._id}>
                                     <div className="numberLikes">
-                                        <button className="buttonLike" onClick={() => like(post._id)}>
+                                        <button className="buttonLikeProfile" onClick={() => like(post._id)}>
                                             <img className="like" src="../../../img/like.png" alt="" />
                                         </button>
-                                        <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
+                                        <span className="likeCountProfile">{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                     </div>
                                     <div>{formatDate(post.createdAt)}</div>
                                     <img className="imageProfile" src={post.image} alt="image"/>
                                     <div>{post.description}</div>
-                                    {/* <div>{post.name}</div> */}
                                     <button
                                         className="buttonDelete"
                                         onClick={() => postsRemove(post._id)}>

@@ -57,20 +57,6 @@ export const Timeline = () => {
         try {
             const fetched = await AddLike(token, postId)
             console.log(fetched);
-
-            if (fetched && fetched.like) {
-                const updatedPostIndex = posts.findIndex((post) => post._id === fetched._id);
-                if (updatedPostIndex !== -1) {
-                    const updatedPost = {
-                        ...fetched,
-                        likeCount: fetched.like.length,
-                    };
-
-                    const updatedPosts = [...posts];
-                    updatedPosts[updatedPostIndex] = updatedPost;
-                    setPosts(updatedPosts);
-                }
-            }
             getAllPosts()
 
         } catch (error) {
@@ -94,7 +80,7 @@ export const Timeline = () => {
                                     <button className="buttonLike" onClick={() => like(post._id)}>
                                         <img className="like" src="../../../img/like.png" alt="" />
                                     </button>
-                                    <span>{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
+                                    <span className="likeCount">{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                 </div>
                                 <button
                                     className="card"
@@ -106,7 +92,7 @@ export const Timeline = () => {
                                     </div>
 
                                     <img className="image" src={post.image} alt="image" />
-                                    <div>{post.description.length > 20 ? post.description.substring(0, 20) + "..." : post.description}</div>
+                                    <div>{post.description.length > 35 ? post.description.substring(0, 35) + "..." : post.description}</div>
                                 </button>
                             </div>
                         ))}

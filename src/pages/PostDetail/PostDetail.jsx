@@ -26,21 +26,6 @@ export const PostDetail = () => {
     const like = async (postId) => {
         try {
             const fetched = await AddLike(token, postId)
-            console.log(fetched);
-
-            if (fetched && fetched.like) {
-                const updatedPostIndex = posts.findIndex((post) => post._id === fetched._id);
-                if (updatedPostIndex !== -1) {
-                    const updatedPost = {
-                        ...fetched,
-                        likeCount: fetched.like.length,
-                    };
-
-                    const updatedPosts = [...posts];
-                    updatedPosts[updatedPostIndex] = updatedPost;
-                    setPosts(updatedPosts);
-                }
-            }
 
         } catch (error) {
             console.log(error);
@@ -57,10 +42,10 @@ export const PostDetail = () => {
             <div className="cardDetail">
 
                 < div className="numberLikes" >
-                    <button className="buttonLike" onClick={() => like(detailRdx?.detail?._id)}>
+                    <button className="buttonLikeDetail" onClick={() => like(detailRdx?.detail?._id)}>
                         <img className="like" src="../../../img/like.png" alt="" />
                     </button>
-                    <span>{detailRdx?.detail?.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
+                    <span className="likeCountDetail">{detailRdx?.detail?.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                 </div>
                 <div className="row">
                     <div> {detailRdx?.detail?.userId?.name} </div>

@@ -16,6 +16,9 @@
 
     margin: 1em; 
 
+    background-color: black;
+    color: white;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,7 +52,7 @@
     background-color: transparent;
 
     border: 0;
-    color: blue;
+    color: rgb(37, 37, 248);
     text-decoration: underline;
 }
 
