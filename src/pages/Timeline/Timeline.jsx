@@ -99,10 +99,14 @@ export const Timeline = () => {
                                 <button
                                     className="card"
                                     onClick={() => handlePost(post)}>
-                                    <div>{formatDate(post.createdAt)}</div>
+                                    <div className="row">
+                                        <div>{post?.userId?.name}</div>
+                                        <div className="space1"></div>
+                                        <div>{formatDate(post.createdAt)}</div>
+                                    </div>
+
                                     <img className="image" src={post.image} alt="image" />
                                     <div>{post.description.length > 20 ? post.description.substring(0, 20) + "..." : post.description}</div>
-                                    {/* <div>{post.name}</div> */}
                                 </button>
                             </div>
                         ))}
