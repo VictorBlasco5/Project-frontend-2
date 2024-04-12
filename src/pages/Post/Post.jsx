@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { userData } from "../../app/slices/userSlice"
 import { CTextarea } from "../../common/CTextarea/CTextarea";
+import { CInput } from "../../common/CInput/CInput";
 
 export const Post = () => {
 
@@ -21,7 +22,7 @@ export const Post = () => {
         }))
     }
 
-    const newAppointment = async () => {
+    const newPost = async () => {
         try {
 
             const fetched = await CreatePost(token, post)
@@ -34,6 +35,15 @@ export const Post = () => {
 
     return (
         <div className="postDesign">
+            <CInput 
+            type="text"
+            name={"image"}
+            placeholder={"Introduce url"}
+            value={post.image || ""}
+            disabled={""}
+            changeEmit={imputHandler}
+            />
+            
             <CTextarea
                 className={"cTextareaDesignPost"}
                 type="text"
@@ -44,7 +54,7 @@ export const Post = () => {
                 changeEmit={imputHandler}
             />
             <button
-                onClick={() => newAppointment()}
+                onClick={() => newPost()}
             >Create post</button>
         </div>
     )
