@@ -9,6 +9,7 @@
     align-items: center;
     flex-wrap: wrap;
     overflow-y: auto;
+    user-select: none;
 }
 
 .positionPostCard {
@@ -67,7 +68,6 @@
     margin: 1em;
 
     border-radius: 0.5em;
-    
 
     border: 0;
 }

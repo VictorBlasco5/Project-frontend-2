@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     overflow-y: auto;
+    user-select: none;
 }
 
 .buttonCreatePost {
@@ -17,6 +18,8 @@
 
     margin-top: 1em;
     border: 0;
+    background-color: black;
+    color: white;
 }
 
 .buttonCreatePost:focus {
@@ -26,4 +29,5 @@
 
 .buttonCreatePost:hover{
     background-color: rgb(85, 84, 84);
+    transition: 0.3s;
 }

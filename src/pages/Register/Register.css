@@ -8,11 +8,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 .error {
     height: 1em;
-    color: red;
+    color: darkred;
 }
 
 .successfully {

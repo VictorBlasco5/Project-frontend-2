@@ -9,6 +9,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     overflow-y: auto;
+    user-select: none;
 }
 
 .dataProfile {
@@ -32,6 +33,7 @@
     border-radius: 0.5em;
 
     border: 0;
+    color: black;
 }
 
 .imageProfile {
@@ -135,6 +137,7 @@
 .buttonNewPost:hover {
     transition: 0.2s;
     background-color: rgb(92, 92, 92);
+    transition: 0.3s;
 }
 
 .space {

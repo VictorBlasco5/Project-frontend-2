@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    user-select: none;
 }
 
 .buttonLogin {
@@ -33,11 +34,13 @@
 
 .buttonLogin:hover {
     background-color: rgb(94, 92, 92);
+    transition: 0.3s;
 }
 
 .textRegister {
     display: flex;
     flex-direction: row;
+    color: black;
 }
 
 .buttonRegister {

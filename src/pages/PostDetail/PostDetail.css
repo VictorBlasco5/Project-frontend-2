@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     overflow-y: auto;
+    user-select: none;
 }
 
 .cardDetail {
@@ -22,6 +23,7 @@
 
     border-radius: 0.5em;
     background-color: rgb(241, 252, 225);
+    color: black;
 }
 
 .space2 {
