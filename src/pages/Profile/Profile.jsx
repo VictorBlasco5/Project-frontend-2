@@ -1,7 +1,7 @@
 import "./Profile.css"
 import { useNavigate } from "react-router-dom"
-import { userData } from "../../app/slices/userSlice"
-import { useSelector } from "react-redux"
+import { updatedUser, userData } from "../../app/slices/userSlice"
+import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput";
 import { AddLike, DeletePosts, GetMyPosts, GetProfile, UpdateProfile } from "../../services/apiCalls"
@@ -15,6 +15,7 @@ export const Profile = () => {
     //conectar con redux lectura
 
     const reduxUser = useSelector(userData)
+    const dispatch = useDispatch();
     const token = reduxUser.credentials.token || ({});
 
 
@@ -104,7 +105,12 @@ export const Profile = () => {
         try {
             const fetched = await UpdateProfile(reduxUser.credentials.token, user)
             // console.log(fetched, "holi");
-
+            setUser((prevState) => ({
+                ...prevState,
+                name: fetched.data.name || prevState.name,
+                email: fetched.data.email || prevState.email,
+            }));
+            dispatch(updatedUser({ credentials: { ...reduxUser.credentials, user: { ...reduxUser.credentials.user, name: user.name } } }));
             setChange("disabled")
 
         } catch (error) {
@@ -155,8 +161,6 @@ export const Profile = () => {
                         name={"email"}
                         value={user.email || ""}
                         disabled={"disabled"}
-                    // changeEmit={(e) => inputHandler(e)}
-                    // onBlurFunction={(e) => checkError(e)}
                     />
                     <CInput
                         className={`cInputDesignProfile`}
@@ -165,8 +169,6 @@ export const Profile = () => {
                         name={"role"}
                         value={user.role || ""}
                         disabled={"disabled"}
-                    // changeEmit={(e) => inputHandler(e)}
-                    // onBlurFunction={(e) => checkError(e)}
                     />
                     <CButton
                         className={"cButtonDesignProfile"}
