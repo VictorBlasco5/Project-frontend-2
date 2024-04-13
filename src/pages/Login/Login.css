@@ -2,12 +2,12 @@
     height: 88vh;
     width: 100vw;
 
-    background-color: darkolivegreen;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: darkolivegreen;
     user-select: none;
 }
 
@@ -15,15 +15,13 @@
     height: 2.7em;
     width: 10em;
 
-    margin: 1em; 
-
-    background-color: black;
-    color: white;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
+    margin: 1em;
+    background-color: black;
+    color: white;
     border: 0;
 }
 
@@ -46,14 +44,13 @@
 .buttonRegister {
     height: 2em;
     width: 5em;
-    
-    margin-top: -0.3em;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     background-color: transparent;
-
+    margin-top: -0.3em;
     border: 0;
     color: rgb(37, 37, 248);
     text-decoration: underline;

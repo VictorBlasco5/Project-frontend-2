@@ -6,12 +6,9 @@ import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
 import { validation } from "../../utils/functions";
 
-
 //REDUX
-
 import { login } from "../../app/slices/userSlice";
 import { useDispatch } from "react-redux";
-
 
 export const Login = () => {
 
@@ -58,7 +55,6 @@ export const Login = () => {
             }
 
             const fetched = await loginService(user)
-            console.log(fetched);
 
             if (fetched.token) {
                 const decoded = decodeToken(fetched.token)
@@ -69,13 +65,10 @@ export const Login = () => {
                 }
 
                 setMsgSuccessfully(`Wellcome ${decoded.name}`)
-
                 dispatch(login({ credentials: auth }))
-
                 setTimeout(() => {
                     navigate("/timeline")
                 }, 500)
-                
             }
         } catch (error) {
             setMsgError(error.message);
@@ -85,8 +78,6 @@ export const Login = () => {
     return (
         <>
             <div className="loginDesign">
-
-
                 <CInput
                     className={`cInputDesign ${userError.emailError !== "" ? "inputDesignError" : ""}`}
                     type="email"
@@ -97,7 +88,7 @@ export const Login = () => {
                 />
                 <div className="error">{userError.emailError}</div>
                 <CInput
-                     className={`cInputDesign ${userError.passwordError !== "" ? "inputDesignError" : ""}`}
+                    className={`cInputDesign ${userError.passwordError !== "" ? "inputDesignError" : ""}`}
                     type="password"
                     name="password"
                     value={user.password || ""}
@@ -105,7 +96,6 @@ export const Login = () => {
                     onBlurFunction={(e) => checkError(e)}
                 />
                 <div className="error">{userError.passwordError}</div>
-
                 <button className="buttonLogin" onClick={loginMe}>Login</button>
                 <div className="textRegister">
                     <div>Don't have an account?</div>
@@ -113,7 +103,6 @@ export const Login = () => {
                 </div>
                 <div className="error">{msgError} </ div>
                 <div className="successfully">{msgSuccessfully} </ div>
-
             </div>
         </>
     )

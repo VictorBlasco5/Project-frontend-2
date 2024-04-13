@@ -1,18 +1,16 @@
 import "./PostDetail.css"
 import { detailData } from "../../app/slices/postDetailSlice";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux"
 import { AddLike } from "../../services/apiCalls";
 import { userData } from "../../app/slices/userSlice";
-
 
 export const PostDetail = () => {
 
     const reduxUser = useSelector(userData)
     const detailRdx = useSelector(detailData);
     const navigate = useNavigate();
-    const [posts, setPosts] = useState([])
     const token = reduxUser.credentials.token || ({});
 
     useEffect(() => {
@@ -21,7 +19,6 @@ export const PostDetail = () => {
             navigate("/post-detail");
         }
     }, [detailRdx]);
-
 
     const like = async (postId) => {
         try {
@@ -40,7 +37,6 @@ export const PostDetail = () => {
     return (
         <div className="postDetailDesign">
             <div className="cardDetail">
-
                 < div className="numberLikes" >
                     <button className="buttonLikeDetail" onClick={() => like(detailRdx?.detail?._id)}>
                         <img className="like" src="../../../img/like.png" alt="" />

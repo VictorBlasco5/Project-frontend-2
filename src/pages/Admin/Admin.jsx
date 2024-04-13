@@ -12,7 +12,6 @@ export const Admin = () => {
     const token = reduxUser.credentials.token || ({});
     const [showUsers, setShowUsers] = useState(true);
 
-
     const handleShowUsers = () => {
         setShowUsers(true);
     };
@@ -25,9 +24,7 @@ export const Admin = () => {
         if (users.length === 0) {
             const recoverUsers = async () => {
                 try {
-
                     const fetched = await GetUsers(token)
-                    console.log(fetched);
                     setUsers(fetched.data)
 
                 } catch (error) {
@@ -37,7 +34,6 @@ export const Admin = () => {
             recoverUsers()
         }
     }, [users])
-
 
     const userRemove = async (userId) => {
         try {
@@ -50,13 +46,11 @@ export const Admin = () => {
         }
     }
 
-
     useEffect(() => {
 
         if (token) {
             getAllPosts()
         }
-        console.log(getAllPosts, "posts");
     }, [token])
 
     const getAllPosts = async () => {
@@ -140,16 +134,14 @@ export const Admin = () => {
                                                             <th >{post.likeCount}</th> {/* Mostrar el número total de "me gusta" */}
                                                         </div>
                                                         <div
-
                                                             onClick={() => handlePost(post)}>
                                                             <th className="description">{post.description.length > 50 ? post.description.substring(0, 50) + "..." : post.description}</th>
                                                             <th className="date">{formatDate(post.createdAt)}</th>
                                                             {/* <div>{post.name}</div> */}
                                                         </div>
                                                         <button className="buttonDeleteAdmin" onClick={() => postsRemove(post._id)}>
-                                                        <img className="like" src="../../../img/delete1.png" alt="" />
+                                                            <img className="like" src="../../../img/delete1.png" alt="" />
                                                         </button>
-
                                                     </tr>
                                                 </thead>
                                             </table>

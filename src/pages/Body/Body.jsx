@@ -7,20 +7,18 @@ import { Post } from "../Post/Post"
 import { PostDetail } from "../PostDetail/PostDetail"
 import { Admin } from "../Admin/Admin"
 
-
 export const Body = () => {
 
     return (
-
-    <Routes>
-        <Route path="*" element={<Navigate to={"/timeline"} replace/>} />
-        <Route path="/timeline" element={<Timeline />}/>
-        <Route path="/" element={<Login />}/>
-        <Route path="/register" element={<Register />}/>
-        <Route path="/profile" element={<Profile />}/>
-        <Route path="/post" element={<Post />}/>
-        <Route path="/post-detail" element={<PostDetail />}/>
-        <Route path="/admin" element={<Admin />}/>
-    </Routes>
+        <Routes>
+            <Route path="*" element={<Navigate to={"/timeline"} replace />} />
+            <Route path="/timeline" element={<Timeline />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/post" element={<Post />} />
+            <Route path="/post-detail" element={<PostDetail />} />
+            <Route path="/admin" element={<Admin />} />
+        </Routes>
     )
 }

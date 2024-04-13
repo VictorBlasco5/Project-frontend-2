@@ -17,8 +17,6 @@ export const Profile = () => {
     const reduxUser = useSelector(userData)
     const dispatch = useDispatch();
     const token = reduxUser.credentials.token || ({});
-
-
     const [posts, setPosts] = useState([])
     const [loadedData, setLoadedData] = useState(false)
     const [user, setUser] = useState({
@@ -26,7 +24,6 @@ export const Profile = () => {
         email: "",
         role: "",
     })
-
 
     const inputHandler = (e) => {
         setUser((prevState) => ({
@@ -45,8 +42,6 @@ export const Profile = () => {
     const ownPosts = async () => {
         try {
             const fetched = await GetMyPosts(token)
-            // console.log(fetched, "fetched data");
-
             const postsWithLikes = fetched.map(post => ({
                 ...post,
                 likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
@@ -67,7 +62,6 @@ export const Profile = () => {
         }
     }
 
-
     useEffect(() => {
         if (!reduxUser.credentials.token) {
             navigate("/")
@@ -75,21 +69,15 @@ export const Profile = () => {
     }, [reduxUser])
 
     useEffect(() => {
-
         const getUserProfile = async () => {
             try {
-
                 const fetched = await GetProfile(reduxUser.credentials.token)
-                // console.log(fetched);
-
                 setLoadedData(true)
-
                 setUser({
                     name: fetched.data[0].name,
                     email: fetched.data[0].email,
                     role: fetched.data[0].role,
                 })
-
             } catch (error) {
                 console.log(error)
             }
@@ -98,17 +86,14 @@ export const Profile = () => {
         if (!loadedData) {
             getUserProfile()
         }
-
     }, [user])
 
     const updateData = async () => {
         try {
             const fetched = await UpdateProfile(reduxUser.credentials.token, user)
-            // console.log(fetched, "holi");
             setUser((prevState) => ({
                 ...prevState,
                 name: fetched.data.name || prevState.name,
-                email: fetched.data.email || prevState.email,
             }));
             dispatch(updatedUser({ credentials: { ...reduxUser.credentials, user: { ...reduxUser.credentials.user, name: user.name } } }));
             setChange("disabled")
@@ -118,13 +103,10 @@ export const Profile = () => {
         }
     }
 
-
     const like = async (postId) => {
         try {
             const fetched = await AddLike(token, postId)
-            console.log(fetched);
             ownPosts()
-
         } catch (error) {
             console.log(error);
         }
@@ -143,7 +125,6 @@ export const Profile = () => {
                         className="buttonNewPost"
                         onClick={() => navigate("/post")}>New post</button>
                     <div className="space"></div>
-
                     <CInput
                         className={`cInputDesignProfile`}
                         type={"text"}
@@ -152,7 +133,6 @@ export const Profile = () => {
                         value={user.name || ""}
                         disabled={change}
                         changeEmit={(e) => inputHandler(e)}
-                    // onBlurFunction={(e) => checkError(e)}
                     />
                     <CInput
                         className={`cInputDesignProfile`}
@@ -176,7 +156,6 @@ export const Profile = () => {
                         functionEmit={change === "" ? updateData : () => setChange("")}
                     />
                 </div>
-
                 <div className="profileDesign">
                     {posts.length > 0 ? (
                         <div className="positionPostCard">
@@ -189,7 +168,7 @@ export const Profile = () => {
                                         <span className="likeCountProfile">{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                     </div>
                                     <div>{formatDate(post.createdAt)}</div>
-                                    <img className="imageProfile" src={post.image} alt="image"/>
+                                    <img className="imageProfile" src={post.image} alt="image" />
                                     <div>{post.description}</div>
                                     <button
                                         className="buttonDelete"

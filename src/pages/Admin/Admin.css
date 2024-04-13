@@ -62,8 +62,6 @@
 
     border: 2px solid;
     border-color: black;
-
-
     background-color: white;
 }
 
@@ -73,8 +71,8 @@
 
     border: 2px solid;
     border-color: black;
-
-    background-color: white;}
+    background-color: white;
+}
 
 .role {
     height: 1em;
@@ -82,7 +80,6 @@
 
     border: 2px solid;
     border-color: black;
-
     background-color: white;
 }
 
@@ -95,10 +92,8 @@
     align-items: center;
 
     margin: 0.15em;
-
     border: 2px solid;
     border-color: black;
-
     background-color: white;
 }
 
@@ -109,7 +104,6 @@
 
     border: 2px solid;
     border-color: black;
-
     background-color: white;
 }
 
@@ -119,7 +113,6 @@
 
     border: 2px solid;
     border-color: black;
-
     background-color: white;
 }
 
@@ -127,16 +120,13 @@
     height: 2em;
     width: 2em;
 
-    margin: 0.2em;
-
-    background-color: transparent;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
+    margin: 0.2em;
+    background-color: transparent;
     font-size: 0.8em;
-
     border: 0;
 }
 
@@ -148,17 +138,15 @@
 .buttonDeleteAdmin:hover {
     font-weight: bold;
     background-color: white;
-
 }
 
 .buttonLikeAdmin {
     height: 1em;
     width: 2em;
 
-    background-color:transparent;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
+    background-color: transparent;
 }

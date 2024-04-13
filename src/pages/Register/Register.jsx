@@ -5,11 +5,9 @@ import { RegisterUser } from "../../services/apiCalls";
 import { validation } from "../../utils/functions";
 import { useNavigate } from "react-router-dom";
 
-
 export const Register = () => {
 
     const navigate = useNavigate()
-
     const [user, setUser] = useState({
         name: "",
         email: "",
@@ -36,7 +34,6 @@ export const Register = () => {
 
     const checkError = (e) => {
         const error = validation(e.target.name, e.target.value)
-
         setUserError((prevState) => ({
             ...prevState,
             [e.target.name + "Error"]: error,
@@ -51,14 +48,9 @@ export const Register = () => {
                     throw new Error("All fields must be completed");
                 }
             }
-
             setMsgError("")
-
             const fetched = await RegisterUser(user);
-            console.log(fetched);
-
             setMsgSuccessfully(fetched.message)
-
             setTimeout(() => {
                 navigate("/")
             }, 500)
@@ -70,7 +62,6 @@ export const Register = () => {
     };
 
     return (
-
         <>
             <div className="registerDesign">
                 <CInput
@@ -103,12 +94,10 @@ export const Register = () => {
                     onBlurFunction={(e) => checkError(e)}
                 />
                 <div className="error">{userError.passwordError}</div>
-
                 <button className="buttonLogin" onClick={registerMe}>Register</button>
                 <div className="error">{msgError} </ div>
                 <div className="successfully">{msgSuccessfully} </ div>
             </div>
-
         </>
     )
 }

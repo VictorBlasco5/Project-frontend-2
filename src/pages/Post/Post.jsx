@@ -19,7 +19,6 @@ export const Post = () => {
 
     const [msgError, setMsgError] = useState("");
     const [msgSuccessfully, setMsgSuccessfully] = useState("");
-
     const [postError, setPostError] = useState({
         imageError: "",
         descriptionError: ""
@@ -44,17 +43,15 @@ export const Post = () => {
     const newPost = async () => {
         try {
             const fetched = await CreatePost(token, post)
-            // console.log(fetched,"hola");
             if (fetched && fetched.success) {
-                
                 setMsgSuccessfully("Post created")
                 setTimeout(() => {
                     navigate("/profile")
                 }, 1000)
-            } 
+            }
 
         } catch (error) {
-            setMsgError("que pasaaa");
+            setMsgError("It's not possible to create the post");
             console.log(error);
         }
     }

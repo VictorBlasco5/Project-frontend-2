@@ -2,12 +2,12 @@
     height: 88vh;
     width: 100vw;
 
-    background-color: darkolivegreen;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    background-color: darkolivegreen;
     overflow-y: auto;
     user-select: none;
 }
@@ -43,5 +43,4 @@
 
 .likeCountDetail {
     margin-top: -3.3em;
-
 }

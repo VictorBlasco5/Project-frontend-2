@@ -6,14 +6,11 @@ import { userData } from "../../app/slices/userSlice";
 import { useNavigate } from "react-router-dom"
 import { updateDetail } from "../../app/slices/postDetailSlice";
 
-
 export const Timeline = () => {
 
     //conectar con redux lectura
-
     const reduxUser = useSelector(userData)
     const token = reduxUser.credentials.token || ({});
-
     const [posts, setPosts] = useState([])
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -41,7 +38,7 @@ export const Timeline = () => {
             const fetched = await GetPosts(token)
             const postsWithLikes = fetched.map(post => ({
                 ...post,
-                likeCount: post.like.length // Calcula el número total de "me gusta" para cada post
+                likeCount: post.like.length // Calculo el número total de "me gusta" para cada post
             }));
             postsWithLikes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // ordeno los post de más nuevo a más antiguo
             setPosts(postsWithLikes)
@@ -50,15 +47,10 @@ export const Timeline = () => {
         }
     }
 
-
-
-
     const like = async (postId) => {
         try {
             const fetched = await AddLike(token, postId)
-            console.log(fetched);
             getAllPosts()
-
         } catch (error) {
             console.log(error);
         }
@@ -90,7 +82,6 @@ export const Timeline = () => {
                                         <div className="space1"></div>
                                         <div>{formatDate(post.createdAt)}</div>
                                     </div>
-
                                     <img className="image" src={post.image} alt="image" />
                                     <div>{post.description.length > 35 ? post.description.substring(0, 35) + "..." : post.description}</div>
                                 </button>

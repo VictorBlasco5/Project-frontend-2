@@ -25,10 +25,8 @@ export const Header = () => {
 
         <>
             <div className="headerDesign">
-
                 {
                     reduxUser?.credentials?.token
-
                         ? (
                             <div className="positionNavBar">
                                 <CLink path="/timeline" title="Timeline" />
@@ -40,12 +38,10 @@ export const Header = () => {
                                         <div></div>
                                     )}
                                 <div className="logOutDesign"
-
                                     onClick={() => dispatch(logout({ credentials: "" })) && navigate("/")}>
                                     Log out
                                 </div>
                             </div>
-
                         ) : (
                             <div className="positionNavBar">
                                 <CLink path="/" title="Login" />

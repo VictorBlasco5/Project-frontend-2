@@ -2,12 +2,12 @@
     height: 88vh;
     width: 100vw;
 
-    background-color: darkolivegreen;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
+    background-color: darkolivegreen;
     overflow-y: auto;
     user-select: none;
 }
@@ -24,7 +24,6 @@
     width: 20em;
 
     margin: 1em;
-
     border-radius: 0.5em;
 }
 
@@ -32,13 +31,12 @@
     height: 2em;
     width: 2em;
 
-    margin-top: 1em;
-    background-color:transparent;
-
     display: flex;
     align-items: center;
     justify-content: center;
 
+    margin-top: 1em;
+    background-color: transparent;
     border: 0;
 }
 
@@ -66,8 +64,6 @@
 
     background-color: rgb(241, 252, 225);
     margin: 1em;
-
     border-radius: 0.5em;
-
     border: 0;
 }
