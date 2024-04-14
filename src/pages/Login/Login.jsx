@@ -78,32 +78,43 @@ export const Login = () => {
     return (
         <>
             <div className="loginDesign">
-                <CInput
-                    className={`cInputDesign ${userError.emailError !== "" ? "inputDesignError" : ""}`}
-                    type="email"
-                    name="email"
-                    value={user.email || ""}
-                    changeEmit={imputHandler}
-                    onBlurFunction={(e) => checkError(e)}
-                />
-                <div className="error">{userError.emailError}</div>
-                <CInput
-                    className={`cInputDesign ${userError.passwordError !== "" ? "inputDesignError" : ""}`}
-                    type="password"
-                    name="password"
-                    value={user.password || ""}
-                    changeEmit={imputHandler}
-                    onBlurFunction={(e) => checkError(e)}
-                />
-                <div className="error">{userError.passwordError}</div>
-                <button className="buttonLogin" onClick={loginMe}>Login</button>
-                <div className="textRegister">
-                    <div>Don't have an account?</div>
-                    <button className="buttonRegister" onClick={() => navigate("/register")}>Register</button>
-                </div>
-                <div className="error">{msgError} </ div>
-                <div className="successfully">{msgSuccessfully} </ div>
+                <div className="text">IT'S YOUR TIME, CONNNECT!</div>
             </div>
+            <div className="down">
+                <div className="espacio"></div>
+                <div className="capibara1">
+                    <img className="capibara" src="../../../img/cap.png" alt="capibara" />
+                </div>
+                <div className="espacio"></div>
+                <div className="inputsLogin">
+                    <CInput
+                        className={`cInputDesign ${userError.emailError !== "" ? "inputDesignError" : ""}`}
+                        type="email"
+                        name="email"
+                        value={user.email || ""}
+                        changeEmit={imputHandler}
+                        onBlurFunction={(e) => checkError(e)}
+                    />
+                    <div className="error">{userError.emailError}</div>
+                    <CInput
+                        className={`cInputDesign ${userError.passwordError !== "" ? "inputDesignError" : ""}`}
+                        type="password"
+                        name="password"
+                        value={user.password || ""}
+                        changeEmit={imputHandler}
+                        onBlurFunction={(e) => checkError(e)}
+                    />
+                    <div className="error">{userError.passwordError}</div>
+                    <button className="buttonLogin" onClick={loginMe}>Login</button>
+                    <div className="textRegister">
+                        <div>Don't have an account?</div>
+                        <button className="buttonRegister" onClick={() => navigate("/register")}>Register</button>
+                    </div>
+                    <div className="error">{msgError} </ div>
+                    <div className="successfully">{msgSuccessfully} </ div>
+                </div>
+            </div>
+
         </>
     )
 }

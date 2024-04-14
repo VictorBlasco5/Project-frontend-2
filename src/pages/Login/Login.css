@@ -1,14 +1,73 @@
 .loginDesign {
-    height: 88vh;
+    height: 21vh;
     width: 100vw;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 
     background-color: darkolivegreen;
     user-select: none;
+
+}
+
+.down {
+    height: 67vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: darkolivegreen;
+}
+
+.espacio {
+    width: 15em;
+}
+
+.capibara1 {
+    height: 20em;
+    width: 20em;
+
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+
+    background-color: darkolivegreen;
+}
+
+.capibara {
+    height: 15em;
+    width: 15em;
+
+
+}
+
+.text {
+    height: 2em;
+    width: 100%;
+    background-color: darkolivegreen;
+    font-size: 4em;
+    color: black;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inputsLogin {
+    height: 20em;
+    width: 16em;
+
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    background-color: darkolivegreen;
+
 }
 
 .buttonLogin {

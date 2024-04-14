@@ -152,6 +152,10 @@ Email: superadmin@superadmin.com
 Contraseña: Aa12345
 ````
 
+### Proyecto deployado
+
+https://master.d3czd04q4oh0gh.amplifyapp.com
+
 ### Futuras funcionalidades:rocket:
 
 - Paginación en la vista admin para las tablas de posts y usuarios.

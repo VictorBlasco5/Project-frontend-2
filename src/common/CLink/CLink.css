@@ -1,14 +1,15 @@
 .clinkDesign {
-    color: white;
+    color: black;
     font-weight: bold;
 
     margin: 1em;
 
     transition: 0.3s;
+    font-size: 1em;
 }
 
 .clinkDesign:hover {
     transition: 0.3s;
-    color: black;
+    transform: scale(1.15);
     cursor: pointer;
 }
