@@ -19,11 +19,12 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+
     background-color: darkolivegreen;
 }
 
 .espacio {
-    width: 15em;
+    width: 13em;
 }
 
 .capibara1 {
@@ -31,7 +32,7 @@
     width: 20em;
 
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-self: center;
     flex-direction: column;
 
@@ -41,33 +42,31 @@
 .capibara {
     height: 15em;
     width: 15em;
-
-
 }
 
 .text {
     height: 2em;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     background-color: darkolivegreen;
     font-size: 4em;
     color: black;
     font-weight: bold;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .inputsLogin {
-    height: 20em;
-    width: 16em;
+    height: 25em;
+    width: 21em;
 
     display: flex;
     align-items: center;
     justify-self: center;
     flex-direction: column;
-    background-color: darkolivegreen;
 
+    background-color: darkolivegreen;
 }
 
 .buttonLogin {
@@ -78,7 +77,7 @@
     align-items: center;
     justify-content: center;
 
-    margin: 1em;
+    margin: 2.4em 0 1em 0;
     background-color: black;
     color: white;
     border: 0;
