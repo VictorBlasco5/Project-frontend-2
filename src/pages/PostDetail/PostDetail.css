@@ -1,0 +1,46 @@
+.postDetailDesign {
+    height: 88vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: darkolivegreen;
+    overflow-y: auto;
+    user-select: none;
+}
+
+.cardDetail {
+    height: 30em;
+    width: 40em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5em;
+    background-color: rgb(241, 252, 225);
+    color: black;
+}
+
+.space2 {
+    width: 6em;
+}
+
+.buttonLikeDetail {
+    margin-top: -3em;
+    background-color: transparent;
+    border: 0;
+}
+
+.buttonLikeDetail:focus {
+    outline: none;
+    border: none;
+}
+
+.likeCountDetail {
+    margin-top: -3.3em;
+}

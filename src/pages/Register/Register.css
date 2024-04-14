@@ -1,0 +1,23 @@
+.registerDesign {
+    height: 88vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: darkolivegreen;
+    user-select: none;
+}
+
+.error {
+    height: 1em;
+    color: darkred;
+}
+
+.successfully {
+    height: 1em;
+    color: black;
+    font-weight: bold;
+}

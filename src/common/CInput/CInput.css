@@ -1,0 +1,38 @@
+.cInputDesign {
+    height: 3em;
+    width: 15em;
+
+    border: 0.2em solid black;
+    border-radius: 0.5em;
+    margin: 1em;
+
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color: white
+}
+
+.inputDesignError {
+    border: 0.2em solid darkred;
+}
+
+.cInputDesignProfile {
+    height: 2em;
+    width: 15em;
+
+    border: 0.2em solid black;
+    border-radius: 0.5em;
+    margin: 1em;
+
+    display: flex;
+    flex-direction: column;
+    color: black;
+    background-color: white
+}
+
+.cInputNewPost {
+    height: 2em;
+    width: 30em;
+
+    border-radius: 0.5em;
+}

@@ -1,0 +1,152 @@
+.admin {
+    height: 88vh;
+    width: 100vw;
+
+    background-color: darkolivegreen;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+    user-select: none;
+}
+
+.containTable {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: darkolivegreen;
+}
+
+.buttonTableAdmin {
+    height: 2em;
+    width: 5em;
+    border-radius: 0%;
+    margin: 0.5em 5em 0.5em 5em;
+    background-color: black;
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border: 0;
+    border-radius: 0.2em;
+}
+
+.buttonTableAdmin:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonTableAdmin:hover {
+    background-color: grey;
+}
+
+.table {
+    width: 100%;
+    background-color: darkolivegreen;
+    overflow-y: auto;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.name {
+    height: 1em;
+    width: 10em;
+
+    border: 2px solid;
+    border-color: black;
+    background-color: white;
+}
+
+.email {
+    height: 1em;
+    width: 20em;
+
+    border: 2px solid;
+    border-color: black;
+    background-color: white;
+}
+
+.role {
+    height: 1em;
+    width: 7em;
+
+    border: 2px solid;
+    border-color: black;
+    background-color: white;
+}
+
+.numberLikesAdmin {
+    height: 1.6em;
+    width: 3em;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 0.15em;
+    border: 2px solid;
+    border-color: black;
+    background-color: white;
+}
+
+
+.description {
+    height: 1em;
+    width: 30em;
+
+    border: 2px solid;
+    border-color: black;
+    background-color: white;
+}
+
+.date {
+    height: 1em;
+    width: 15em;
+
+    border: 2px solid;
+    border-color: black;
+    background-color: white;
+}
+
+.buttonDeleteAdmin {
+    height: 2em;
+    width: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0.2em;
+    background-color: transparent;
+    font-size: 0.8em;
+    border: 0;
+}
+
+.buttonDeleteAdmin:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonDeleteAdmin:hover {
+    font-weight: bold;
+    background-color: white;
+}
+
+.buttonLikeAdmin {
+    height: 1em;
+    width: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+}

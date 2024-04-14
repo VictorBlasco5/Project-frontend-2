@@ -1,0 +1,135 @@
+.profileDesign {
+    height: 88vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: darkolivegreen;
+    overflow-y: auto;
+    user-select: none;
+}
+
+.dataProfile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cardProfile {
+    height: 22em;
+    width: 25em;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(241, 252, 225);
+    color: black;
+    margin: 1em;
+    border-radius: 0.5em;
+    border: 0;
+}
+
+.imageProfile {
+    height: 10em;
+    width: 10em;
+
+    margin: 1em;
+    border-radius: 0.5em;
+}
+
+.card:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonLikeProfile {
+    height: 2em;
+    width: 2em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: -1em;
+    background-color: transparent;
+    border: 0;
+}
+
+.buttonLikeProfile:focus {
+    outline: none;
+    border: none;
+}
+
+.likeCountProfile {
+    margin-top: -1em;
+}
+
+
+.like {
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.numberLikes {
+    display: flex;
+    align-items: center;
+    height: 1.6em;
+    width: 3em;
+}
+
+.buttonDelete {
+    height: 2em;
+    width: 3em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    font-size: 0.8em;
+    border: 0;
+    margin-top: 1em;
+}
+
+.buttonDelete:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonDelete:hover {
+    font-weight: bold;
+}
+
+.buttonNewPost {
+    height: 2em;
+    width: 7em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: 1em;
+    background-color: black;
+    color: white;
+    border: 0;
+}
+
+.buttonNewPost:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonNewPost:hover {
+    transition: 0.2s;
+    background-color: rgb(92, 92, 92);
+    transition: 0.3s;
+}
+
+.space {
+    width: 26em;
+}

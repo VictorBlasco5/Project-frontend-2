@@ -1,0 +1,120 @@
+.loginDesign {
+    height: 21vh;
+    width: 100vw;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: darkolivegreen;
+    user-select: none;
+
+}
+
+.down {
+    height: 67vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: darkolivegreen;
+}
+
+.espacio {
+    width: 13em;
+}
+
+.capibara1 {
+    height: 20em;
+    width: 20em;
+
+    display: flex;
+    align-items: flex-end;
+    justify-self: center;
+    flex-direction: column;
+
+    background-color: darkolivegreen;
+}
+
+.capibara {
+    height: 15em;
+    width: 15em;
+}
+
+.text {
+    height: 2em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: darkolivegreen;
+    font-size: 4em;
+    color: black;
+    font-weight: bold;
+}
+
+.inputsLogin {
+    height: 25em;
+    width: 21em;
+
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+
+    background-color: darkolivegreen;
+}
+
+.buttonLogin {
+    height: 2.7em;
+    width: 10em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 2.4em 0 1em 0;
+    background-color: black;
+    color: white;
+    border: 0;
+}
+
+.buttonLogin:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonLogin:hover {
+    background-color: rgb(94, 92, 92);
+    transition: 0.3s;
+}
+
+.textRegister {
+    display: flex;
+    flex-direction: row;
+    color: black;
+}
+
+.buttonRegister {
+    height: 2em;
+    width: 5em;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+    margin-top: -0.3em;
+    border: 0;
+    color: rgb(37, 37, 248);
+    text-decoration: underline;
+}
+
+.buttonRegister:focus {
+    outline: none;
+    border: none;
+}

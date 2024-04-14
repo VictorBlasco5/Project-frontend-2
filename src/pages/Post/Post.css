@@ -1,0 +1,33 @@
+.postDesign {
+    height: 88vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: darkolivegreen;
+    overflow-y: auto;
+    user-select: none;
+}
+
+.buttonCreatePost {
+    height: 3em;
+    width: 10em;
+
+    margin-top: 1em;
+    border: 0;
+    background-color: black;
+    color: white;
+}
+
+.buttonCreatePost:focus {
+    outline: none;
+    border: none;
+}
+
+.buttonCreatePost:hover {
+    background-color: rgb(85, 84, 84);
+    transition: 0.3s;
+}

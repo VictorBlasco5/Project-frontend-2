@@ -1,0 +1,49 @@
+.cButtonDesign {
+    height: 3em;
+    width: 13em;
+    margin: 1em;
+
+    border-radius: 0.5em;
+
+    background-color: black;
+    color: white;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    user-select: none;
+}
+
+.cButtonDesign:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: rgb(92, 92, 92);
+}
+
+.cButtonDesignProfile {
+    height: 1.8em;
+    width: 5em;
+    margin: 0.9em;
+
+    border-radius: 0.5em;
+
+    background-color: black;
+    color: white;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    user-select: none;
+}
+
+.cButtonDesignProfile:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: rgb(92, 92, 92);
+}

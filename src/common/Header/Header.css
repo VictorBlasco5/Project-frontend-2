@@ -1,0 +1,47 @@
+.navBar {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.capNavBar {
+    height: 12vh;
+    width: 13em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(92, 92, 92);
+}
+
+.capyConn {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icon {
+    height: 3em;
+    width: 3em;
+}
+
+.headerDesignRight {
+    height: 12vh;
+    width: 90em;
+    background-color: rgb(92, 92, 92);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    user-select: none;
+}
+
+.positionNavBarRight {
+    display: flex;
+    flex-direction: row;
+}
+
+
+
