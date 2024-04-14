@@ -83,7 +83,7 @@ export const Login = () => {
             <div className="down">
                 <div className="espacio"></div>
                 <div className="capibara1">
-                    <img className="capibara" src="../../../img/cap.png" alt="capibara" />
+                    <img className="capibara" src="src/img/capi.png" alt="capibara" />
                 </div>
                 <div className="espacio"></div>
                 <div className="inputsLogin">
