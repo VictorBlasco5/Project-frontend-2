@@ -6,9 +6,10 @@ Bienvenido a la documentación de la web de mi red social. Es mi septimo proyect
 ## Tabla de contenido :page_with_curl:
 
 - [Tecnologías.](#tecnologías-star2)
-- [Características.](#características-label)
+- [Características.](#características)
 - [Instalación en local.](#instalación-en-local-gear)
 - [Usuarios modelo](#usuarios-modelo-pouting_face)
+- [Implementación en vivo.](#implementación-en-vivo)
 - [Futuras funcionalidades.](#futuras-funcionalidadesrocket)
 - [Autor.](#autor-curly_haired_man)
 - [Agradecimientos.](#agradecimientos)
@@ -19,7 +20,7 @@ Bienvenido a la documentación de la web de mi red social. Es mi septimo proyect
 src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"> 
 
 
-### Características	:label:
+### Características :bookmark:
 **Barra de navegación**
 
 ![Barra navegación](./img/navBar.jpg)
@@ -136,6 +137,8 @@ $ npm install
 $ npm run dev
 ````
 
+Necesitarás el [backend.](https://github.com/VictorBlasco5/Proyect-backend-2)
+
 ### Usuarios modelo :pouting_face:
 
 #### User
@@ -152,7 +155,7 @@ Email: superadmin@superadmin.com
 Contraseña: Aa12345
 ````
 
-### Proyecto deployado
+### Implementación en vivo :bulb:
 
 https://master.d3czd04q4oh0gh.amplifyapp.com
 
