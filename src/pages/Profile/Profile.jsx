@@ -6,6 +6,7 @@ import { useState, useEffect } from "react"
 import { CInput } from "../../common/CInput/CInput";
 import { AddLike, DeletePosts, GetMyPosts, GetProfile, UpdateProfile } from "../../services/apiCalls"
 import { CButton } from "../../common/CButton/CButton"
+import likes from "../../../img/like.png";
 
 export const Profile = () => {
 
@@ -163,7 +164,7 @@ export const Profile = () => {
                                 <div className="cardProfile" key={post._id}>
                                     <div className="numberLikes">
                                         <button className="buttonLikeProfile" onClick={() => like(post._id)}>
-                                            <img className="like" src="../../../img/like.png" alt="" />
+                                            <img className="like" src={likes} alt="like" />
                                         </button>
                                         <span className="likeCountProfile">{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                     </div>

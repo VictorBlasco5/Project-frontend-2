@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux"
 import { AddLike } from "../../services/apiCalls";
 import { userData } from "../../app/slices/userSlice";
+import likes from "../../../img/like.png";
 
 export const PostDetail = () => {
 
@@ -39,7 +40,7 @@ export const PostDetail = () => {
             <div className="cardDetail">
                 < div className="numberLikes" >
                     <button className="buttonLikeDetail" onClick={() => like(detailRdx?.detail?._id)}>
-                        <img className="like" src="../../../img/like.png" alt="" />
+                        <img className="like" src={likes} alt="like" />
                     </button>
                     <span className="likeCountDetail">{detailRdx?.detail?.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                 </div>

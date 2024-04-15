@@ -5,6 +5,7 @@ import { loginService } from "../../services/apiCalls";
 import { useNavigate } from "react-router-dom";
 import { decodeToken } from "react-jwt";
 import { validation } from "../../utils/functions";
+import capibara from "../../../img/cap.png";
 
 //REDUX
 import { login } from "../../app/slices/userSlice";
@@ -83,7 +84,7 @@ export const Login = () => {
             <div className="down">
                 <div className="espacio"></div>
                 <div className="capibara1">
-                    <img className="capibara" src="../img/cap.png" alt="capibara" />
+                    <img className="capibara" src={capibara} alt="capibara" />
                 </div>
                 <div className="espacio"></div>
                 <div className="inputsLogin">

@@ -1,6 +1,7 @@
 import "./Header.css"
 import { CLink } from "../CLink/CLink"
 import { useNavigate } from "react-router-dom";
+import capibara from "../../../img/cap.png";
 
 //redux
 import { useSelector, useDispatch } from "react-redux"
@@ -26,7 +27,7 @@ export const Header = () => {
         <>
             <div className="navBar">
                 <div className="capNavBar">
-                    <div className="capyConn"><img className="icon" src="../../../img/cap.png" alt="capibara" />CapyConn  </div>
+                    <div className="capyConn"><img className="icon" src={capibara} alt="capibara" />CapyConn  </div>
                 </div>
                 <div className="headerDesignRight">
                     <div>

@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { userData } from "../../app/slices/userSlice";
 import { useNavigate } from "react-router-dom"
 import { updateDetail } from "../../app/slices/postDetailSlice";
+import likes from "../../../img/like.png";
 
 export const Timeline = () => {
 
@@ -70,7 +71,7 @@ export const Timeline = () => {
                             <div className="card" key={post._id}>
                                 <div className="numberLikes">
                                     <button className="buttonLike" onClick={() => like(post._id)}>
-                                        <img className="like" src="../../../img/like.png" alt="" />
+                                        <img className="like" src={likes} alt="like" />
                                     </button>
                                     <span className="likeCount">{post.likeCount}</span> {/* Mostrar el número total de "me gusta" */}
                                 </div>

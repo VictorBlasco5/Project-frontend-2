@@ -3,6 +3,8 @@ import "./Admin.css"
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux"
 import { userData } from "../../app/slices/userSlice"
+import remove from "../../../img/delete1.png";
+import likes from "../../../img/like.png";
 
 export const Admin = () => {
 
@@ -105,7 +107,7 @@ export const Admin = () => {
                                                     <button
                                                         className="buttonDeleteAdmin"
                                                         onClick={() => userRemove(user._id)}>
-                                                        <img className="like" src="../../../img/delete1.png" alt="" />
+                                                        <img className="like" src={remove} alt="" />
                                                     </button>
                                                 </tr>
                                             </thead>
@@ -129,7 +131,7 @@ export const Admin = () => {
                                                     <tr className="row">
                                                         <div className="numberLikesAdmin">
                                                             <th className="buttonLikeAdmin" >
-                                                                <img className="like" src="../../../img/like.png" alt="" />
+                                                                <img className="like" src={likes} alt="like" />
                                                             </th>
                                                             <th >{post.likeCount}</th> {/* Mostrar el número total de "me gusta" */}
                                                         </div>
@@ -140,7 +142,7 @@ export const Admin = () => {
                                                             {/* <div>{post.name}</div> */}
                                                         </div>
                                                         <button className="buttonDeleteAdmin" onClick={() => postsRemove(post._id)}>
-                                                            <img className="like" src="../../../img/delete1.png" alt="" />
+                                                            <img className="like" src="../../../img/delete1.png" alt="delete" />
                                                         </button>
                                                     </tr>
                                                 </thead>
